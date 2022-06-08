@@ -66,9 +66,9 @@ git pull --rebase
 5. 提交到远程仓库
 
 ```bash
-git push origin your-local-branch:your-origin-dev-branch (分支：分支描述)
+git push origin your-local-branch:your-origin-dev-branch (分支：作者-分支描述)
 
-例如：git push origin dev:米洛 新增登录
+例如：git push origin dev:米洛-新增登录
 ```
 
 提交完成后在github 上发起mergeRequest，通知管理员合并分支
