@@ -18,7 +18,7 @@ git config --global user.email kiritoasu@163.com
 配置目标远程仓库，告诉git你需要向哪个仓库提交代码
 
 ```bash
-git remote add origin https://github.com/HNSAnimeClub/HNSWEB.git 
+git remote add origin https://你的token@github.com/HNSAnimeClub/HNSWEB-FRONT-END.git
 ```
 
 **英文状态下按q退出git**
@@ -68,7 +68,7 @@ git pull --rebase
 ```bash
 git push origin your-local-branch:your-origin-dev-branch (分支：分支描述)
 
-例如：git push origin dev:feat/login
+例如：git push origin dev:米洛 新增登录
 ```
 
 提交完成后在github 上发起mergeRequest，通知管理员合并分支
