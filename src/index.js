@@ -1,17 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import 'antd/dist/antd.less'
 import reportWebVitals from './reportWebVitals';
+import dva from 'dva'
+import {createBrowserHistory} from "history";
+import RouterConfig from "./router";
+import './index.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// 创建应用
+const app = dva({
+  history: createBrowserHistory(),
+});
+//路由
+app.router(RouterConfig)
+
+//model 单个注册
+// app.model(require('./models/dvaModel').default)
+
+//model遍历注册注册
+require('./models').default.forEach(key => app.model(key.default))
+
+// 启动应用
+app.start('#root');
+
 reportWebVitals();

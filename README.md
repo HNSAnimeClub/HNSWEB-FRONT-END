@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# 基于 React JS 的绯色之空动漫社社区类应用，前端部分
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+克隆到本地仓库后安装依赖:
+### `npm install`
 
-## Available Scripts
-
-In the project directory, you can run:
-
+启动项目:
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### 提交代码至git
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+修改自己的用户名，邮箱
 
-### `npm test`
+```bash
+git config --global user.name '米洛'
+git config --global user.email kiritoasu@163.com
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+配置目标远程仓库，告诉git你需要向哪个仓库提交代码
 
-### `npm run build`
+```bash
+git remote add origin https://github.com/HNSAnimeClub/HNSWEB.git 
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**英文状态下按q退出git**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1.  查看状态
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git status
+```
 
-### `npm run eject`
+2. 将所有希望提交的文件添加至暂存区，不希望提交的 `git checkout -- 文件名`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git add .
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3.  提交到本地仓库
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+git commit -m "类型：描述"
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+例如: git commit -m "feat:新增login模块" // 新增登录模块
+```
 
-## Learn More
+```
+类型：
+  feat    ✨  新功能/新特性
+  fix     🐛  修复 bug
+  style   💄  代码格式修改, 注意不是 css 修改
+  docs    📝  添加/更新文档
+  perf    👌  提高性能/优化
+  test    ✅  增加/修改测试用例
+  refactor🎨  代码重构
+  chore   🎨  其他修改, 比如构建流程, 依赖管理
+  publish 🚀  发布新版本
+  tag     📌  发布新版本
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. 远程提交前需要拉取最新代码
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+git pull --rebase
+```
 
-### Code Splitting
+5. 提交到远程仓库
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+git push origin your-local-branch:your-origin-dev-branch (分支：分支描述)
 
-### Analyzing the Bundle Size
+例如：git push origin dev:feat/login
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+提交完成后在github 上发起mergeRequest，通知管理员合并分支
