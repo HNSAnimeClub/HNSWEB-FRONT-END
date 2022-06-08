@@ -2,6 +2,7 @@ import React from 'react'
 import {Routes, Route, BrowserRouter} from 'react-router-dom'
 import {nanoid} from "nanoid";
 import App from "./App";
+import Example from "./component/example/Example";
 
 
 export default function RouterConfig() {
@@ -9,7 +10,11 @@ export default function RouterConfig() {
     {
       element: <App/>,
       path: "/"
+    }, {
+      element: <Example/>,
+      path: "page/example"
     }
+
   ]
 
   return (

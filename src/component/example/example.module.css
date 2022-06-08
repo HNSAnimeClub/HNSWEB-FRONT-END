@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container p {
+  font-size: 2em;
+  font-weight: bold;
+  background: #1DA57A;
+  padding: 1em 2em 1em 2em;
+  color: white;
+  border-radius: 1em;
+}
+/*# sourceMappingURL=example.module.css.map */
