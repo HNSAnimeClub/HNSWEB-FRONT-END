@@ -16,7 +16,7 @@ function Example(props) {
 
   return (
     <div className={style.container}>
-      <p>{state && "你好，世界" || "这是你的第一个 React 组件"}</p>
+      <p>{(state && "你好，世界") || "这是你的第一个 React 组件"}</p>
       <Button onClick={handleClick}>点击切换文本</Button>
     </div>
   );
