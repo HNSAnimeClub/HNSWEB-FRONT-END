@@ -3,6 +3,7 @@ import {Routes, Route, BrowserRouter} from 'react-router-dom'
 import {nanoid} from "nanoid";
 import App from "./App";
 import Example from "./component/example/Example";
+import Test from "./component/testArea/Test";
 
 
 export default function RouterConfig() {
@@ -13,6 +14,9 @@ export default function RouterConfig() {
     }, {
       element: <Example/>,
       path: "page/example"
+    }, {
+      element: <Test/>,
+      path: "/test"
     }
 
   ]

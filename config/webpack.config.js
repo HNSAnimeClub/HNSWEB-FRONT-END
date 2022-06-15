@@ -327,15 +327,16 @@ module.exports = function (webpackEnv) {
         // This often causes confusion because we only process files within src/ with babel.
         // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
         // please link the files into your node_modules/ and let module-resolution kick in.
-        // Make sure your source files are compiled, as they will not be processed in any way.
-        new ModuleScopePlugin(paths.appSrc, [
-          paths.appPackageJson,
-          reactRefreshRuntimeEntry,
-          reactRefreshWebpackPluginRuntimeEntry,
-          babelRuntimeEntry,
-          babelRuntimeEntryHelpers,
-          babelRuntimeRegenerator,
-        ]),
+        // // Make sure your source files are compiled, as they will not be processed in any way.
+        // 为了引入src以外的文件，被注释掉
+        // new ModuleScopePlugin(paths.appSrc, [
+        //   paths.appPackageJson,
+        //   reactRefreshRuntimeEntry,
+        //   reactRefreshWebpackPluginRuntimeEntry,
+        //   babelRuntimeEntry,
+        //   babelRuntimeEntryHelpers,
+        //   babelRuntimeRegenerator,
+        // ]),
       ],
     },
     module: {
@@ -559,18 +560,26 @@ module.exports = function (webpackEnv) {
                   loader: 'less-loader',
                   options: {
                     lessOptions: {
-                      modifyVars: {
-                        'primary-color': '#1DA57A',
-                        'link-color': '#1DA57A',
-                        'border-radius-base': '2px',
-                      },
+                      // modifyVars: {
+                      //   'primary-color': '#1DA57A',
+                      //   'link-color': '#1DA57A',
+                      //   'border-radius-base': '2px',
+                      // },
                       javascriptEnabled: true
                     }
                   }
-                }
+                },
+                {
+                  loader: 'style-resources-loader',
+                  options: {
+                    patterns: path.resolve(__dirname, '../public/baseUI.less'),
+                  },
+                },
               ],
               sideEffects: true
             },
+
+
             {
               test: lessModuleRegex,
               use: [
@@ -584,17 +593,25 @@ module.exports = function (webpackEnv) {
                   loader: 'less-loader',
                   options: {
                     lessOptions: {
-                      modifyVars: {
-                        'primary-color': '#1DA57A',
-                        'link-color': '#1DA57A',
-                        'border-radius-base': '2px',
-                      },
+                      // modifyVars: {
+                      //   'primary-color': '#1DA57A',
+                      //   'link-color': '#1DA57A',
+                      //   'border-radius-base': '2px',
+                      // },
                       javascriptEnabled: true
                     }
                   }
-                }
+                },
+                {
+                  loader: 'style-resources-loader',
+                  options: {
+                    patterns: path.resolve(__dirname, '../public/baseUI.less'),
+                  },
+                },
               ],
             },
+
+
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.
             // In production, they would get copied to the `build` folder.
