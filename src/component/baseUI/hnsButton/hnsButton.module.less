@@ -1,0 +1,37 @@
+/**
+* @name: hnsButton
+* @author: 米洛
+* @date: 2022-06-13 12:59
+* @description：HNS Button 的样式
+*/
+.HNSButton {
+  //background: @primary-color;
+  padding: 0.5em 1em 0.5em 1em;
+  cursor: pointer;
+  font-size: @font-size-base;
+  transition: ease-in-out 0.3s;
+}
+
+.default {
+  background: white;
+  border: @border-color-base 1px solid;
+  border-radius: @border-radius-base;
+  color: @text-color;
+}
+
+.default:hover {
+  border: @primary-color 1px solid;
+  color: @primary-color;
+}
+
+.primary {
+  background: @primary-color;
+  color: white;
+  border-radius: @border-radius-base;
+  border: none
+}
+
+.primary:hover {
+  background: lighten(@primary-color, 10%);
+}
+
