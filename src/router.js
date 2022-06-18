@@ -2,6 +2,7 @@ import React, {lazy, Suspense} from 'react'
 import {Routes, Route, BrowserRouter} from 'react-router-dom'
 import {nanoid} from "nanoid";
 import App from "./App";
+import Test from "./component/testArea/Test";
 
 /**
  * @Author: 米洛
@@ -39,6 +40,7 @@ export default function RouterConfig() {
       <Suspense fallback={<h1>加载中... 后续此处可以替换为精心设计的加载组件，加载组件不允许懒加载</h1>}>
         <Routes>
           <Route path={"/"} element={<App/>} key={nanoid()}/>
+          <Route path={"/test"} element={<Test/>} key={nanoid()}/>
           {
             router.map(item => {
               return (
