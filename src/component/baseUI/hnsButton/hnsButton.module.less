@@ -5,11 +5,20 @@
 * @description：HNS Button 的样式
 */
 .HNSButton {
-  //background: @primary-color;
   padding: 0.5em 1em 0.5em 1em;
   cursor: pointer;
   font-size: @font-size-base;
   transition: ease-in-out 0.3s;
+}
+
+// active 的作用是：当点击频率很高，动画可能还未结束，这个时候需要清除正在播放的动画，重新执行，动画更流畅
+.HNSButton:active {
+  animation: none;
+
+}
+
+.clickActive {
+  animation: borderDiffuseAnime 0.5s;
 }
 
 .default {
@@ -35,3 +44,12 @@
   background: lighten(@primary-color, 10%);
 }
 
+// 点击后阴影扩散的动画
+@keyframes borderDiffuseAnime {
+  0% {
+    box-shadow: 0 0 0 0 lighten(@primary-color, 30%);
+  }
+  100% {
+    box-shadow: 0 0 0 5px lighten(@primary-color, 100%);
+  }
+}
