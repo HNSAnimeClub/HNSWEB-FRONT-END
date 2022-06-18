@@ -17,7 +17,7 @@ function Example(props) {
   return (
     <div className={style.container}>
       <p>{(state && "你好，世界") || "这是你的第一个 React 组件"}</p>
-      <HNSButton onClick={handleClick} >点击切换文本</HNSButton>
+      <HNSButton onClick={handleClick}>点击切换文本</HNSButton>
     </div>
   );
 }
