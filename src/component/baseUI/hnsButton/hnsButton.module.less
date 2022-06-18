@@ -14,7 +14,10 @@
 // active 的作用是：当点击频率很高，动画可能还未结束，这个时候需要清除正在播放的动画，重新执行，动画更流畅
 .HNSButton:active {
   animation: none;
+}
 
+.HNSButton:focus {
+  outline: @primary-color;
 }
 
 .clickActive {
@@ -50,6 +53,6 @@
     box-shadow: 0 0 0 0 lighten(@primary-color, 30%);
   }
   100% {
-    box-shadow: 0 0 0 5px lighten(@primary-color, 100%);
+    box-shadow: 0 0 0 6px lighten(@primary-color, 100%);
   }
 }

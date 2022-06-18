@@ -10,10 +10,12 @@ import HNSButton from "../baseUI/hnsButton/HNSButton";
 import style from './test.module.less'
 
 function Test(props) {
-
+  const handleClick = () => {
+    console.log(1)
+  }
   return (
     <div className={style.container}>
-      <HNSButton type="default">HNSButton</HNSButton>
+      <HNSButton type={"primary"} onClick={handleClick}>HNSButton</HNSButton>
     </div>
   );
 }
