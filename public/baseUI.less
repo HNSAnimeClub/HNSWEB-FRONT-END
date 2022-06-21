@@ -10,12 +10,23 @@
 @success-color: #52c41a; // 成功色
 @warning-color: #faad14; // 警告色
 @error-color: #f5222d; // 错误色
-@font-size-base: 16px; // 主字号
+@font-size-base: 1.6rem; // 主字号
+@font-size-secondary: 1.4rem; // 次级字号
 @heading-color: rgba(0, 0, 0, 0.85); // 标题色
 @text-color: rgba(0, 0, 0, 0.65); // 主文本色
 @text-color-secondary: rgba(0, 0, 0, 0.45); // 次文本色
 @disabled-color: rgba(0, 0, 0, 0.25); // 失效色
-@border-radius-base: 2px; // 组件/浮层圆角
+@border-radius-base: 0.4rem; // 组件/浮层圆角
 @border-color-base: rgba(75, 75, 75, 0.29); // 边框色
-@box-shadow-base: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
-0 9px 28px 8px rgba(0, 0, 0, 0.05); // 浮层阴影
+@box-shadow-base: 0 0.3rem 0.6rem -0.4rem rgba(0, 0, 0, 0.12), 0 0.6rem 1.6rem 0 rgba(0, 0, 0, 0.08),
+0 0.9rem 2.8rem 0.8rem rgba(0, 0, 0, 0.05); // 浮层阴影
+@text-padding: 0.5rem; //边框内部文字间距
+@label-margin: 0.4rem; // 输入框标签外边距
+@input-min-width: 20rem; // 输入框最小宽度
+@input-max-width: 30rem; // 输入框最大宽度
+@animation-bezier-base: cubic-bezier(0.64, 0, 0.2, 1); // 贝塞尔曲线
+
+body {
+  font-size: 16px;
+  min-width: 68.75rem;
+}

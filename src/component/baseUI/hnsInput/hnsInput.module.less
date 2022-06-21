@@ -1,0 +1,75 @@
+/**
+* @name: hnsInput.module.less
+* @author: 米洛
+* @date: 2022-06-19 23:23
+* @description：该文件的描述
+*/
+
+.layOutControl {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  border: @border-color-base 1.5px solid;
+  border-radius: @border-radius-base;
+  padding: @text-padding*0.5 @text-padding;
+  min-width: @input-min-width;
+  max-width: @input-max-width;
+}
+
+.error {
+  border: @error-color 1.5px solid;
+}
+
+.containerActive {
+  outline: none;
+  border: @primary-color 1.5px solid;
+}
+
+.base {
+  border: none;
+  width: 95%;
+
+}
+
+.base:focus {
+  outline: none;
+}
+
+
+.label {
+  color: @text-color;
+  margin-bottom: @label-margin;
+  max-width: @input-max-width;
+  justify-self: flex-end;
+  font-weight: bold;
+}
+
+.maxLength {
+  margin: 0 @text-padding;
+  color: @text-color-secondary;
+}
+
+.errorMessage {
+  margin-bottom: @label-margin;
+  color: @error-color;
+  animation: transForm @animation-bezier-base both 0.3s; // 贝塞尔曲线（速率曲线），参考Ae
+
+}
+
+.text {
+}
+
+@keyframes transForm {
+  0% {
+    opacity: 0;
+    transform: translate(0, 15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
