@@ -6,16 +6,24 @@
  */
 
 import React from 'react';
-import HNSButton from "../baseUI/hnsButton/HNSButton";
+import HNSInput from "../baseUI/hnsInput/HNSInput";
 import style from './test.module.less'
 
+
 function Test(props) {
-  const handleClick = () => {
-    console.log(1)
+  const handleChange = (e) => {
+    console.log(e.target.value)
   }
   return (
     <div className={style.container}>
-      <HNSButton type={"primary"} onClick={handleClick}>HNSButton</HNSButton>
+      <HNSInput iconSize={48} onChange={handleChange}
+                label={"密码"}
+                maxLength={12}
+                require={true}
+                type={"password"}
+                checkTypeReg={/^[a-zA-Z0-9_]+$/}
+                errorMessage={"密码仅可包含a-z,0-9,下划线"}
+      />
     </div>
   );
 }
