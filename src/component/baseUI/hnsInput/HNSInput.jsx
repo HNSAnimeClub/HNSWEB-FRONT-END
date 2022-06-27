@@ -19,6 +19,8 @@ function HNSInput(props) {
   const [contentLength, setContentLength] = useState(0)
   const [focus, setFocus] = useState(false)
   const input = useRef(null)
+  // 匹配一个或多个空格
+  const emptyReg = /(^\s+)|(\s+$)|\s+/g;
   let error = false
 
 
@@ -66,15 +68,15 @@ function HNSInput(props) {
       HNSInput.HNSInput_value = {[name]: input.current.value, error: true}
   }
 
-
   // 校验组件的渲染函数
   const checkError = () => {
     if (firstInput) return
     if (!require && !errorMessage) return
-    if ((require && errorMessage && !input.current.value) || (require && !errorMessage && !input.current.value)) {
+    if ((require && errorMessage && (!input.current.value || emptyReg.test(input.current.value)))
+      || (require && !errorMessage && (!input.current.value || emptyReg.test(input.current.value)))) {
       return (<span className={style.errorMessage}>{label}不能为空</span>)
     }
-    // 这两行需要重点关注
+    // 这两行需要重点关注，有可能在某种特定情况下翻车
     if ((require && errorMessage && input.current.value) || (!require && errorMessage)) {
       if (!(checkTypeReg && checkTypeReg.test(input.current.value))) {
         return (<span className={style.errorMessage}>{errorMessage}</span>)

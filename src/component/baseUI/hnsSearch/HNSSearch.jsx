@@ -23,7 +23,7 @@ function HNSSearch(props) {
     <div className={style.controller}>
       <input type={"search"} onChange={handleChange}/>
       <button className={style.searchBtn} onClick={onFinished}>
-        <IconSearch size={28}/>
+        <IconSearch size={24}/>
       </button>
     </div>
   );
