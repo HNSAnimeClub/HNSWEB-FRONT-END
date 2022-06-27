@@ -1,7 +1,8 @@
 # 基于 React JS 的绯色之空动漫社社区类应用，前端部分
 
 <img src="https://img.shields.io/badge/HNS--WEB--FE-v1.0-%23ff6987" alt="HNS-WEB-FE"/>
-<img src="https://img.shields.io/badge/React-v17.02-%231890ff"/>
+<img src="https://img.shields.io/badge/React-v17.02-%231890ff"/> <img src="https://img.shields.io/badge/React--router-v6.3.2-1890ff"/>
+
 
 **克隆到本地仓库后安装依赖:**
 ### `npm install`
