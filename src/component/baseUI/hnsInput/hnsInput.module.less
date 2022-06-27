@@ -2,7 +2,7 @@
 * @name: hnsInput.module.less
 * @author: 米洛
 * @date: 2022-06-19 23:23
-* @description：该文件的描述
+* @description：input 输入框样式
 */
 
 .layOutControl {
@@ -19,16 +19,20 @@
   padding: @text-padding*0.5 @text-padding;
   min-width: @input-min-width;
   max-width: @input-max-width;
+  transition: ease-in-out 0.3s;
 }
 
 .error {
   border: @error-color 1.5px solid;
+  box-shadow: @border-box-error-shadow;
 }
 
 
 .containerActive {
   outline: none;
   border: @primary-color 1.5px solid;
+  transition: ease-in-out 0.3s;
+  box-shadow: @border-box-shadow;
 }
 
 .base {
@@ -38,8 +42,7 @@
 }
 
 .base::placeholder {
-  color: lighten(@text-color-secondary,50%);
-
+  color: lighten(@text-color-secondary, 50%);
 }
 
 .base:focus {
