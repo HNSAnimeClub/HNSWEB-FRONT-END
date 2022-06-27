@@ -1,4 +1,4 @@
-# HNS Button 组件
+# HNS Button 组件（按钮）
 
 <img src="https://img.shields.io/badge/HNS--Button-v1.0-%23ff6987" alt="HNS-Button">
 

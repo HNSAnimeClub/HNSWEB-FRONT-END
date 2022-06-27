@@ -1,0 +1,53 @@
+/**
+* @name: hnsSearch.module.less
+* @author: 米洛
+* @date: 2022-06-27 17:27
+* @description：搜素框
+*/
+
+.controller {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 4em;
+  padding-left: @text-padding;
+  min-width: @input-min-width;
+  max-width: @input-max-width;
+
+
+  input {
+    min-width: 80%;
+    border: lighten(@border-color-base, 20%) 1.5px solid;
+    border-right: none;
+    border-radius: @border-radius-base 0 0 @border-radius-base;
+    padding-left: 1em;
+    height: 100%;
+  }
+
+  input:focus {
+    outline: none;
+    border: @primary-color 1.5px solid;
+    border-right: none;
+  }
+
+  .searchBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: lighten(@primary-color, 10%);
+    width: 20%;
+    height: 100%;
+    border-radius: 0 @border-radius-base @border-radius-base 0;
+    border: none;
+    transition: @animation-bezier-base 0.3s;
+    cursor: pointer;
+    color: white;
+  }
+
+  .searchBtn:hover {
+    background: lighten(@primary-color, 15%);
+  }
+
+}
+

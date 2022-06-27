@@ -12,7 +12,7 @@ import IconEyeOpen from "../../../icon/iconEyeOpen/IconEyeOpen";
 import IconEyeClose from "../../../icon/iconEyeClose/IconEyeClose";
 
 function HNSInput(props) {
-  const {label, iconSize, maxLength, errorMessage, require, checkTypeReg, name} = props
+  const {label, iconSize, maxLength, errorMessage, require, checkTypeReg, name, placeHolder} = props
   const [type, setType] = useState(props.type)
   const [plainText, setPlainText] = useState(false)
   const [firstInput, setFirstInput] = useState(true)
@@ -123,7 +123,7 @@ function HNSInput(props) {
               className={`${style.container} ${errorFocus()} ${checkError() ? style.error : ""}`}
               onFocus={handleFocus} onBlur={handleBlur}>
               <input onChange={handleOnChange} className={`${style.base} ${style.text} `}
-                     ref={input} maxLength={maxLength}/>
+                     ref={input} maxLength={maxLength} placeholder={placeHolder ? placeHolder : ""}/>
               {renderPlainText()}
               {maxLength ? <span className={style.maxLength}>
               <span className={maxLengthError()}>{contentLength}</span>/{maxLength}</span> : ""}
@@ -139,7 +139,7 @@ function HNSInput(props) {
               className={`${style.container} ${errorFocus()} ${checkError() ? style.error : ""}`}
               onFocus={handleFocus} onBlur={handleBlur}>
               <input onChange={handleOnChange} className={`${style.base} ${style[type]} `}
-                     type={type} ref={input} maxLength={maxLength}/>
+                     type={type} ref={input} maxLength={maxLength} placeholder={placeHolder ? placeHolder : ""}/>
               {renderPlainText()}
               {maxLength ? <span className={style.maxLength}>
               <span className={maxLengthError()}>{contentLength}</span>/{maxLength}</span> : ""}
@@ -156,7 +156,7 @@ function HNSInput(props) {
               className={`${style.container} ${errorFocus()} ${checkError() ? style.error : ""}`}
               onFocus={handleFocus} onBlur={handleBlur}>
               <input onChange={handleOnChange} className={`${style.base} ${style[type]}`}
-                     type={type} ref={input} maxLength={maxLength}/>
+                     type={type} ref={input} maxLength={maxLength} placeholder={placeHolder ? placeHolder : ""}/>
               {renderPlainText()}
               {maxLength ? <span className={style.maxLength}>
               <span className={maxLengthError()}>{contentLength}</span>/{maxLength}</span> : ""}
@@ -171,7 +171,7 @@ function HNSInput(props) {
               className={`${style.container} ${errorFocus()} ${checkError() ? style.error : ""}`}
               onFocus={handleFocus} onBlur={handleBlur}>
               <input onChange={handleOnChange} className={`${style.base} ${style.text} `}
-                     ref={input} maxLength={maxLength}/>
+                     ref={input} maxLength={maxLength} placeholder={placeHolder ? placeHolder : ""}/>
               {renderPlainText()}
               {maxLength ? <span className={style.maxLength}>
               <span className={maxLengthError()}>{contentLength}</span>/{maxLength}</span> : ""}

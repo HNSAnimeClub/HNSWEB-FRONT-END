@@ -1,4 +1,4 @@
-# HNS Input 组件
+# HNS Input 组件（输入框）
 
 <img src="https://img.shields.io/badge/HNS--Input-v1.0-ff6987" alt="HNS-Input">
 
@@ -9,6 +9,7 @@
 |     type     |  String  | text / password  |  否  | text |                      输入框类型                      |
 |    label     |  String  |      任意字符串       |  否  |  空   |                     输入框标签头                      | 
 |     name     |  String  |      任意字符串       |  否  | 空字符串 |                用于提交数据的属性名，不允许写中文                |
+| placeHolder  |  String  |      任意字符串       |  否  | 空字符串 |                     默认提示信息                      |
 |  maxLength   |  Number  |       任意数值       |  否  |  空   |                    最大允许输入长度                     | 
 |   require    | boolean  |   true / false   |  否  | true |                     内容是否为必填                     |
 | errorMessage |  String  |      任意字符串       |  否  |  空   |           自定义错误内容，必须与checkTypeReg同时使用           |
@@ -30,6 +31,7 @@ const getResult = (result) => {
           label={"密码"}
           name={"password"}
           maxLength={12}
+          placeHolder={"请输入密码"}
           require={true}
           type={"password"}
           checkTypeReg={/^[a-zA-Z0-9_]+$/}
