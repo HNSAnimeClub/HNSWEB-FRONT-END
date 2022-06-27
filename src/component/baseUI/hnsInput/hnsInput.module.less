@@ -37,6 +37,11 @@
 
 }
 
+.base::placeholder {
+  color: lighten(@text-color-secondary,50%);
+
+}
+
 .base:focus {
   outline: none;
 }
@@ -65,9 +70,6 @@
   color: @error-color;
   animation: transForm @animation-bezier-base both 0.3s; // 贝塞尔曲线（速率曲线），参考Ae
 
-}
-
-.text {
 }
 
 @keyframes transForm {

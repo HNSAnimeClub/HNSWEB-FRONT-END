@@ -21,6 +21,7 @@ function HNSButton(props) {
   const handleAnime = () => {
     setState(0)
   }
+
   return (
     <button
       className={`${style.HNSButton} 
