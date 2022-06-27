@@ -11,23 +11,26 @@ import IconClear from "../../../icon/iconClear/IconClear";
 import IconEyeOpen from "../../../icon/iconEyeOpen/IconEyeOpen";
 import IconEyeClose from "../../../icon/iconEyeClose/IconEyeClose";
 
-function HnsInput(props) {
-
-  const {label, iconSize, maxLength, errorMessage, require, checkTypeReg} = props
+function HNSInput(props) {
+  const {label, iconSize, maxLength, errorMessage, require, checkTypeReg, name} = props
   const [type, setType] = useState(props.type)
   const [plainText, setPlainText] = useState(false)
   const [firstInput, setFirstInput] = useState(true)
   const [contentLength, setContentLength] = useState(0)
   const [focus, setFocus] = useState(false)
   const input = useRef(null)
+  let error = false
+
 
   // 输入框变化的回调
-  const handleOnChange = (e) => {
-    if (props.onChange) {
-      props.onChange(e)
-      setFirstInput(false)
-      setContentLength(input.current.value.length)
+  const handleOnChange = () => {
+    error = !!checkError();
+    if (props.result) {
+      props.result({[name]: input.current.value, error})
     }
+    HNSInput.HNSInput_value = {[name]: input.current.value, error}
+    setFirstInput(false)
+    setContentLength(input.current.value.length)
   }
 
   // 输入框聚焦（选中状态）
@@ -59,14 +62,16 @@ function HnsInput(props) {
     input.current.focus()
     setFocus(true)
     setContentLength(0)
+    if (checkError())
+      HNSInput.HNSInput_value = {[name]: input.current.value, error: true}
   }
+
 
   // 校验组件的渲染函数
   const checkError = () => {
     if (firstInput) return
     if (!require && !errorMessage) return
-    if ((require && errorMessage && !input.current.value) ||
-      (require && !errorMessage && !input.current.value)) {
+    if ((require && errorMessage && !input.current.value) || (require && !errorMessage && !input.current.value)) {
       return (<span className={style.errorMessage}>{label}不能为空</span>)
     }
     // 这两行需要重点关注
@@ -100,6 +105,12 @@ function HnsInput(props) {
     }
   }
 
+  // 超出字数限制，文本变红
+  const maxLengthError = () => {
+    if (input.current?.value.length === maxLength) {
+      return style.maxLengthError
+    } else return ""
+  }
 
   // 主要组件渲染函数
   const renderComponent = () => {
@@ -114,12 +125,12 @@ function HnsInput(props) {
               <input onChange={handleOnChange} className={`${style.base} ${style.text} `}
                      ref={input} maxLength={maxLength}/>
               {renderPlainText()}
-              {maxLength ? <span className={style.maxLength}>{contentLength}/{maxLength}</span> : ""}
+              {maxLength ? <span className={style.maxLength}>
+              <span className={maxLengthError()}>{contentLength}</span>/{maxLength}</span> : ""}
               <IconClear onClick={clear} width={iconSize} height={iconSize}/>
             </div>
             {checkError()}
-          </div>
-        )
+          </div>)
       } else {
         return (
           <div className={style.layOutControl}>
@@ -130,12 +141,12 @@ function HnsInput(props) {
               <input onChange={handleOnChange} className={`${style.base} ${style[type]} `}
                      type={type} ref={input} maxLength={maxLength}/>
               {renderPlainText()}
-              {maxLength ? <span className={style.maxLength}>{contentLength}/{maxLength}</span> : ""}
+              {maxLength ? <span className={style.maxLength}>
+              <span className={maxLengthError()}>{contentLength}</span>/{maxLength}</span> : ""}
               <IconClear onClick={clear} width={iconSize} height={iconSize}/>
             </div>
             {checkError()}
-          </div>
-        )
+          </div>)
       }
     } else {
       if (type) {
@@ -147,12 +158,12 @@ function HnsInput(props) {
               <input onChange={handleOnChange} className={`${style.base} ${style[type]}`}
                      type={type} ref={input} maxLength={maxLength}/>
               {renderPlainText()}
-              {maxLength ? <span className={style.maxLength}>{contentLength}/{maxLength}</span> : ""}
+              {maxLength ? <span className={style.maxLength}>
+              <span className={maxLengthError()}>{contentLength}</span>/{maxLength}</span> : ""}
               <IconClear onClick={clear} width={iconSize} height={iconSize}/>
             </div>
             {checkError()}
-          </div>
-        )
+          </div>)
       } else {
         return (
           <div className={style.layOutControl}>
@@ -162,12 +173,12 @@ function HnsInput(props) {
               <input onChange={handleOnChange} className={`${style.base} ${style.text} `}
                      ref={input} maxLength={maxLength}/>
               {renderPlainText()}
-              {maxLength ? <span className={style.maxLength}>{contentLength}/{maxLength}</span> : ""}
+              {maxLength ? <span className={style.maxLength}>
+              <span className={maxLengthError()}>{contentLength}</span>/{maxLength}</span> : ""}
               <IconClear onClick={clear} width={iconSize} height={iconSize}/>
             </div>
             {checkError()}
-          </div>
-        )
+          </div>)
       }
 
     }
@@ -181,4 +192,4 @@ function HnsInput(props) {
 
 }
 
-export default HnsInput;
+export default HNSInput;

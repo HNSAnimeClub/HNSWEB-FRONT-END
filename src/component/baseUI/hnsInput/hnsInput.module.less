@@ -8,6 +8,7 @@
 .layOutControl {
   display: flex;
   flex-direction: column;
+  min-height: 123px;
 }
 
 .container {
@@ -23,6 +24,7 @@
 .error {
   border: @error-color 1.5px solid;
 }
+
 
 .containerActive {
   outline: none;
@@ -51,6 +53,11 @@
 .maxLength {
   margin: 0 @text-padding;
   color: @text-color-secondary;
+
+}
+
+.maxLengthError {
+  color: @error-color;
 }
 
 .errorMessage {
