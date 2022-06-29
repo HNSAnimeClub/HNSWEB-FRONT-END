@@ -70,18 +70,15 @@ function HNSInput(props) {
 
   // 校验组件的渲染函数
   const checkError = () => {
+    let value = input.current?.value
     if (firstInput) return
     if (!require && !errorMessage) return
-    if ((require && errorMessage && (!input.current.value || emptyReg.test(input.current.value)))
-      || (require && !errorMessage && (!input.current.value || emptyReg.test(input.current.value)))) {
+    if (emptyReg.test(value))
+      return (<span className={style.errorMessage}>{label}不能包含空格</span>)
+    if (require && (errorMessage || !errorMessage) && !value)
       return (<span className={style.errorMessage}>{label}不能为空</span>)
-    }
-    // 这两行需要重点关注，有可能在某种特定情况下翻车
-    if ((require && errorMessage && input.current.value) || (!require && errorMessage)) {
-      if (!(checkTypeReg && checkTypeReg.test(input.current.value))) {
-        return (<span className={style.errorMessage}>{errorMessage}</span>)
-      }
-    }
+    if ((require || !require) && errorMessage && !checkTypeReg.test(value))
+      return (<span className={style.errorMessage}>{errorMessage}</span>)
   }
 
   // 密码明文，密文切换
@@ -116,74 +113,22 @@ function HNSInput(props) {
 
   // 主要组件渲染函数
   const renderComponent = () => {
-    if (label) {
-      if (!type) {
-        return (
-          <div className={style.layOutControl}>
-            <span className={style.label}>{label}</span>
-            <div
-              className={`${style.container} ${errorFocus()} ${checkError() ? style.error : ""}`}
-              onFocus={handleFocus} onBlur={handleBlur}>
-              <input onChange={handleOnChange} className={`${style.base} ${style.text} `}
-                     ref={input} maxLength={maxLength} placeholder={placeHolder ? placeHolder : ""}/>
-              {renderPlainText()}
-              {maxLength ? <span className={style.maxLength}>
+    return (
+      <div className={style.layOutControl}>
+        {label && <span className={style.label}>{label}</span>}
+        <div
+          className={`${style.container} ${errorFocus()} ${checkError() ? style.error : ""}`}
+          onFocus={handleFocus} onBlur={handleBlur}>
+          <input onChange={handleOnChange} className={`${style.base}`}
+                 ref={input} maxLength={maxLength} placeholder={placeHolder ? placeHolder : ""} type={type}/>
+          {renderPlainText()}
+          {maxLength ? <span className={style.maxLength}>
               <span className={maxLengthError()}>{contentLength}</span>/{maxLength}</span> : ""}
-              <IconClear onClick={clear} width={iconSize} height={iconSize}/>
-            </div>
-            {checkError()}
-          </div>)
-      } else {
-        return (
-          <div className={style.layOutControl}>
-            <span className={style.label}>{label}</span>
-            <div
-              className={`${style.container} ${errorFocus()} ${checkError() ? style.error : ""}`}
-              onFocus={handleFocus} onBlur={handleBlur}>
-              <input onChange={handleOnChange} className={`${style.base} ${style[type]} `}
-                     type={type} ref={input} maxLength={maxLength} placeholder={placeHolder ? placeHolder : ""}/>
-              {renderPlainText()}
-              {maxLength ? <span className={style.maxLength}>
-              <span className={maxLengthError()}>{contentLength}</span>/{maxLength}</span> : ""}
-              <IconClear onClick={clear} width={iconSize} height={iconSize}/>
-            </div>
-            {checkError()}
-          </div>)
-      }
-    } else {
-      if (type) {
-        return (
-          <div className={style.layOutControl}>
-            <div
-              className={`${style.container} ${errorFocus()} ${checkError() ? style.error : ""}`}
-              onFocus={handleFocus} onBlur={handleBlur}>
-              <input onChange={handleOnChange} className={`${style.base} ${style[type]}`}
-                     type={type} ref={input} maxLength={maxLength} placeholder={placeHolder ? placeHolder : ""}/>
-              {renderPlainText()}
-              {maxLength ? <span className={style.maxLength}>
-              <span className={maxLengthError()}>{contentLength}</span>/{maxLength}</span> : ""}
-              <IconClear onClick={clear} width={iconSize} height={iconSize}/>
-            </div>
-            {checkError()}
-          </div>)
-      } else {
-        return (
-          <div className={style.layOutControl}>
-            <div
-              className={`${style.container} ${errorFocus()} ${checkError() ? style.error : ""}`}
-              onFocus={handleFocus} onBlur={handleBlur}>
-              <input onChange={handleOnChange} className={`${style.base} ${style.text} `}
-                     ref={input} maxLength={maxLength} placeholder={placeHolder ? placeHolder : ""}/>
-              {renderPlainText()}
-              {maxLength ? <span className={style.maxLength}>
-              <span className={maxLengthError()}>{contentLength}</span>/{maxLength}</span> : ""}
-              <IconClear onClick={clear} width={iconSize} height={iconSize}/>
-            </div>
-            {checkError()}
-          </div>)
-      }
-
-    }
+          <IconClear onClick={clear} width={iconSize} height={iconSize}/>
+        </div>
+        {checkError()}
+      </div>
+    )
   }
 
   return (
