@@ -7,12 +7,17 @@
 
 import React from 'react';
 import style from './test.module.less'
+import HNSSearch from "../baseUI/hnsSearch/HNSSearch";
 
 
 function Test(props) {
+  const onFinished = (result) => {
+    console.log(result)
+  }
 
   return (
     <div className={style.container}>
+      <HNSSearch onFinished={onFinished}/>
     </div>
   );
 }

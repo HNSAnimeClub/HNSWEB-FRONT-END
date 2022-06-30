@@ -27,7 +27,7 @@ const getResult = (result) => {
   console.log(result)
 }
 
-<HNSInput iconSize={48} onChange={handleChange}
+<HNSInput iconSize={48}
           label={"密码"}
           name={"password"}
           maxLength={12}
