@@ -78,8 +78,15 @@ function HNSForm(props) {
   }
   const conditionChecked = () => {
     const {children} = props
-    for (let i = 0; i < resultList.length; i++) {
-      if (!(children[i].props.require || children[i].props.checkTypeReg)) {
+    if (children instanceof Array) {
+      for (let i = 0; i < children.length; i++) {
+        console.log(children[i])
+        if (!(children[i].props.require || children[i].props.checkTypeReg) && children[i].type.name === "HNSInput") {
+          throw new Error('不允许所有表单均无限制条件')
+        }
+      }
+    } else {
+      if (!(children.props.require || children.props.checkTypeReg) && children.type.name === "HNSInput") {
         throw new Error('不允许所有表单均无限制条件')
       }
     }
