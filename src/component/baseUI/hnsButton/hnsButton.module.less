@@ -5,7 +5,7 @@
 * @description：HNS Button 的样式
 */
 .HNSButton {
-  padding: 0.5em 1em 0.5em 1em;
+  padding: 0.5rem 1rem 0.5rem 1rem;
   cursor: pointer;
   font-size: @font-size-base;
   transition: ease-in-out 0.3s;
@@ -25,7 +25,7 @@
 }
 
 .clickActive {
-  animation: borderDiffuseAnime 0.5s;
+  animation: @border-diffuse-Anime 0.5s;
 }
 
 .default {
@@ -78,12 +78,3 @@
   cursor: not-allowed;
 }
 
-// 点击后阴影扩散的动画
-@keyframes borderDiffuseAnime {
-  0% {
-    box-shadow: 0 0 0 0 lighten(@primary-color, 30%);
-  }
-  100% {
-    box-shadow: 0 0 0 6px lighten(@primary-color, 100%);
-  }
-}

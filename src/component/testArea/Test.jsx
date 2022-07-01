@@ -7,17 +7,13 @@
 
 import React from 'react';
 import style from './test.module.less'
-import HNSSearch from "../baseUI/hnsSearch/HNSSearch";
-
+import HNSCheckBox from "../baseUI/hnsCheckBox/HNSCheckBox";
 
 function Test(props) {
-  const onFinished = (result) => {
-    console.log(result)
-  }
 
   return (
     <div className={style.container}>
-      <HNSSearch onFinished={onFinished}/>
+      <HNSCheckBox name={"checkBox"} className={style.checkBox} label={<span>我保证和大家<a>好好相处！</a></span>}/>
     </div>
   );
 }
