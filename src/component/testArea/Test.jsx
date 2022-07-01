@@ -9,15 +9,12 @@ import React from 'react';
 import style from './test.module.less'
 import HNSCheckBox from "../baseUI/hnsCheckBox/HNSCheckBox";
 import HNSForm from "../baseUI/hnsForm/HNSForm";
-import HNSInput from "../baseUI/hnsInput/HNSInput";
 
 function Test(props) {
 
   return (
     <div className={style.container}>
-      <HNSForm>
-        <HNSCheckBox name={"checkBox"} className={style.checkBox} label={<span>我保证和大家<a>好好相处！</a></span>}/>
-      </HNSForm>
+      <HNSCheckBox name={"checkBox"} className={style.checkBox} label={<span>我保证和大家<a>好好相处！</a></span>}/>
     </div>
   );
 }

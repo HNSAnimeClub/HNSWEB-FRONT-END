@@ -24,6 +24,7 @@ export default function RouterConfig() {
 
   const router = []
   const component = require.context('./component/pages', true, /\.(jsx)$/)
+  const typeReg = /^(pages\/admin)/g
   component
     .keys()
     .forEach((key, index) => {

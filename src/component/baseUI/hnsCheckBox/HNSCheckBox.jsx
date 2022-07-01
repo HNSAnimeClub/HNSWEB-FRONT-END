@@ -10,7 +10,7 @@ import style from './hnsCheckBox.module.less'
 import {nanoid} from "nanoid";
 
 function HNSCheckBox(props) {
-  let {label, name, className} = props
+  let {label, name, className, onClick} = props
   if (!name) {
     throw new Error('请为HNSCheckBox指定唯一的name属性！')
   }
@@ -19,8 +19,12 @@ function HNSCheckBox(props) {
   const checkBox = useRef(null)
   // 若选择框处于 HNSForm 组件内，应通知其变化
   const handleClick = () => {
+    if (onClick) {
+      onClick({[name]: checkBox.current?.checked, error: !(checkBox.current?.checked)})
+    }
     HNSCheckBox.HNSCheckBox_value = {[name]: checkBox.current?.checked, error: !(checkBox.current?.checked)}
   }
+
   HNSCheckBox.HNSCheckBox_value = {[name]: checkBox.current?.checked, error: !(checkBox.current?.checked)}
 
   return (
