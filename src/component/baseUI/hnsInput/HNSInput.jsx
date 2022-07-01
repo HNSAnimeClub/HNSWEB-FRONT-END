@@ -12,7 +12,7 @@ import IconEyeOpen from "../../../icon/iconEyeOpen/IconEyeOpen";
 import IconEyeClose from "../../../icon/iconEyeClose/IconEyeClose";
 
 function HNSInput(props) {
-  const {label, iconSize, maxLength, errorMessage, require, checkTypeReg, name, placeHolder} = props
+  let {label, iconSize, maxLength, errorMessage, require, checkTypeReg, name, placeHolder, className} = props
   const [type, setType] = useState(props.type)
   const [plainText, setPlainText] = useState(false)
   const [firstInput, setFirstInput] = useState(true)
@@ -22,6 +22,7 @@ function HNSInput(props) {
   // 匹配一个或多个空格
   const emptyReg = /(^\s+)|(\s+$)|\s+/g;
   let error = false
+  className = className ? className : ""
 
 
   // 输入框变化的回调
@@ -114,7 +115,7 @@ function HNSInput(props) {
   // 主要组件渲染函数
   const renderComponent = () => {
     return (
-      <div className={style.layOutControl}>
+      <div className={`${style.layOutControl} ${className}`}>
         {label && <span className={style.label}>{label}</span>}
         <div
           className={`${style.container} ${errorFocus()} ${checkError() ? style.error : ""}`}
@@ -124,7 +125,7 @@ function HNSInput(props) {
           {renderPlainText()}
           {maxLength ? <span className={style.maxLength}>
               <span className={maxLengthError()}>{contentLength}</span>/{maxLength}</span> : ""}
-          <IconClear onClick={clear} width={iconSize} height={iconSize}/>
+          {input.current?.value && <IconClear onClick={clear} size={iconSize}/>}
         </div>
         {checkError()}
       </div>

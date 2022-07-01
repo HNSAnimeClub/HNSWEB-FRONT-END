@@ -29,8 +29,53 @@
 @border-box-error-shadow: 0 0 0.3rem 0 lighten(@primary-color, 15%); // 输入框错误边缘高亮
 @border-box-error-shadow: 0 0 0.3rem 0 lighten(@error-color, 15%); // 输入框错误边缘高亮
 @border-box-success-shadow: 0 0 0.3rem 0 lighten(@success-color, 15%); // 输入框正确边缘高亮
-
+@border-diffuse-Anime: borderDiffuseAnime;
+@zoom-Anime: zoom-Anime;
+@transform-Anime: transForm;
 body {
   font-size: 16px;
   min-width: 68.75rem;
+}
+
+// 点击后阴影扩散的动画
+@keyframes borderDiffuseAnime {
+  0% {
+    box-shadow: 0 0 0 0 lighten(@primary-color, 30%);
+  }
+  100% {
+    box-shadow: 0 0 0 6px fade(lighten(@primary-color, 100%), 0);
+
+  }
+}
+
+// 缩放动画
+@keyframes zoom-Anime {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  75% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+
+}
+
+// 位移动画
+@keyframes transForm {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

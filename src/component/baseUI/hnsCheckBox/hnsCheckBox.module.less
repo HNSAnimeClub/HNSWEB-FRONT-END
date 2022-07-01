@@ -1,0 +1,75 @@
+/**
+* @name: hnsCheckBox.module.less
+* @author: 米洛
+* @date: 2022-06-30 19:24
+* @description：checkBox样式
+*/
+
+.controller {
+  display: inline-block;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: @border-radius-base;
+  transition: @animation-bezier-base 0.3s;
+
+  input {
+    cursor: pointer;
+    width: 1.2rem;
+    height: 1.2rem;
+    appearance: none;
+    vertical-align: middle;
+    outline: none;
+  }
+
+  input[type="checkbox"]:checked:focus {
+    outline: none;
+  }
+
+  input[type="checkbox"]:checked:active {
+    outline: none;
+    animation: none;
+  }
+
+  input[type="checkbox"]:checked {
+    background: @primary-color;
+    color: white;
+    border: 1px solid @primary-color;
+    animation-name: @zoom-Anime, @border-diffuse-Anime;
+    transition: ease-in-out;
+    animation-duration: 0.5s;
+  }
+
+  input[type="checkbox"] {
+    cursor: pointer;
+    border: 0.1rem solid lighten(@text-color, 30%);
+    border-radius: @border-radius-base;
+    color: white;
+  }
+
+  input[type="checkbox"]:after {
+    content: '\2714';
+    position: relative;
+    border: solid #fff;
+    border-width: 0;
+    top: -25%;
+    left: 15%;
+    vertical-align: middle;
+    display: none;
+  }
+
+  input[type="checkbox"]:checked:after {
+    display: block;
+  }
+
+  label {
+    vertical-align: middle;
+    margin-left: 0.3rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+}
+
+.controller:hover {
+  transition: @animation-bezier-base 0.5s;
+  background: fade(@primary-color, 10%);
+}

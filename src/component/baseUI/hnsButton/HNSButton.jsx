@@ -9,6 +9,8 @@ import React, {useState} from 'react';
 import style from './hnsButton.module.less'
 
 function HNSButton(props) {
+  let {changeStyle, className} = props
+  className = className ? className : ""
   const [state, setState] = useState(0)
   const handleClick = (e) => {
     if (props.onClick) {
@@ -25,7 +27,8 @@ function HNSButton(props) {
   return (
     <button
       className={`${style.HNSButton} 
-      ${props.type ? style[props.type] : style["default"]} ${state ? style["clickActive"] : ""}`}
+      ${props.type ? style[props.type] : style["default"]} ${state ? style["clickActive"] : ""} ${className}`}
+      style={changeStyle}
       onClick={handleClick}
       onAnimationEnd={handleAnime}
       disabled={props.disabled}

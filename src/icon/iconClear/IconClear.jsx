@@ -9,15 +9,15 @@ import React from 'react';
 import style from './iconClear.module.less'
 
 function IconClear(props) {
-  let width = props.width ? props.width : "36"
-  let height = props.height ? props.height : "36"
+  let size = props.size ? props.size : "36"
+  let className = props.className ? props.className : ""
 
   const handleClick = (e) => {
     props.onClick(e)
   }
 
   return (
-    <svg t="1655735994759" onClick={handleClick} width={width} height={height} className={style.clear}
+    <svg t="1655735994759" onClick={handleClick} width={size} height={size} className={`${style.clear} ${className}`}
          viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
          p-id="3139">
       <path

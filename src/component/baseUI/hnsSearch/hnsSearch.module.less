@@ -10,47 +10,37 @@
   flex-direction: row;
   align-items: center;
   width: 100%;
-  height: 3em;
+  height: 3rem;
   padding-left: @text-padding;
   min-width: @input-min-width;
   max-width: @input-max-width;
+  border: @border-color-base 1.5px solid;
+  border-radius: @border-radius-base;
+  transition: ease-in-out 0.3s;
 
 
   input {
     transition: ease-in-out 0.3s;
     min-width: 80%;
-    border: @border-color-base 1.5px solid;
-    border-right: none;
-    border-radius: @border-radius-base 0 0 @border-radius-base;
+    outline: none;
+    border: none;
     padding-left: 1em;
     height: 100%;
   }
-
-  input:focus {
-    transition: ease-in-out 0.3s;
-    outline: none;
-    border: @primary-color 1.5px solid;
-    border-right: none;
-
-  }
-
-  .searchBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: lighten(@primary-color, 10%);
-    width: 20%;
-    height: 100%;
-    border-radius: 0 @border-radius-base @border-radius-base 0;
-    border: none;
-    transition: @animation-bezier-base 0.3s;
-    cursor: pointer;
-    color: white;
-  }
-
-  .searchBtn:hover {
-    background: lighten(@primary-color, 15%);
-  }
-
+}
+.icon{
+  cursor:pointer;
+}
+.controllerActive {
+  transition: ease-in-out 0.3s;
+  outline: none;
+  border: @primary-color 1.5px solid;
+  box-shadow: @border-box-shadow;
 }
 
+.iconActive {
+  path {
+    transition: ease-in-out 0.3s;
+    stroke: @primary-color !important;
+  }
+}
