@@ -11,6 +11,9 @@ import {nanoid} from "nanoid";
 
 function HNSCheckBox(props) {
   let {label, name, className} = props
+  if (!name) {
+    throw new Error('请为HNSCheckBox指定唯一的name属性！')
+  }
   className = className ? className : ""
   const checkBoxValue = nanoid()
   const checkBox = useRef(null)
@@ -19,11 +22,7 @@ function HNSCheckBox(props) {
     HNSCheckBox.HNSCheckBox_value = {[name]: checkBox.current?.checked, error: !(checkBox.current?.checked)}
   }
   HNSCheckBox.HNSCheckBox_value = {[name]: checkBox.current?.checked, error: !(checkBox.current?.checked)}
-  useEffect(() => {
-    if (!name) {
-      throw new Error('请为HNSCheckBox指定唯一的name属性！')
-    }
-  }, [])
+
   return (
     <div className={`${style.controller} ${className}`}>
       <input id={checkBoxValue} type={"checkbox"} ref={checkBox} onClick={handleClick}/>
