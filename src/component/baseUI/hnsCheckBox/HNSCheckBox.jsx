@@ -5,7 +5,7 @@
  * @description：选择框
  */
 
-import React, {useEffect, useRef} from 'react';
+import React, { useRef} from 'react';
 import style from './hnsCheckBox.module.less'
 import {nanoid} from "nanoid";
 
