@@ -5,7 +5,7 @@
  * @description：头像组件
  */
 
-// 圆形，方角 可传递url，可变换大小
+
 import React from 'react';
 import style from './hnsAvatar.module.less'
 
