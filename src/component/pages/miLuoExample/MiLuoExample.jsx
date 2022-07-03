@@ -5,23 +5,20 @@
  * @description：米洛的示例组件
  */
 
-// import React from 'react';
-//
-// function MiLuoExample(props) {
-//   return (
-//     <div></div>
-//   );
-// }
-//
-// export default MiLuoExample;
-
-
-import React from 'react'
+import React, {useState} from 'react'
+import style from './miLuoExample.module.less'
 
 function MiLuoExample() {
+  const [title, setTitle] = useState(0)
+
+  const handleClick = () => {
+    setTitle(!title)
+  }
   return (
     <div>
-      米洛的组件
+      <h1 className={`${title ? style.title : style.titlePrimary}`}>我是米洛</h1>
+      <button onClick={handleClick}>按钮点击变化</button>
+      {title && <span>123</span>}
     </div>
   )
 }
