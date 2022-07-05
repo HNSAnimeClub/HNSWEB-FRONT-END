@@ -1,0 +1,60 @@
+/**
+* @name: hnsToast.module.less
+* @author: 米洛
+* @date: 2022-07-05 12:27
+* @description：该文件的描述
+*/
+
+@box-shadow-toast: 0 0.5rem 1.7rem lighten(@text-color, 70%);
+
+.controllerActive {
+  transition: 0.3s ease-in-out;
+  position: fixed;
+  border-radius: @border-radius-base;
+  padding: 1rem 1.5rem;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  box-shadow: @box-shadow-toast;
+  visibility: visible;
+  animation: transFormDown 0.4s @animation-bezier-base;
+
+}
+
+.controllerClose {
+  transition: 0.3s ease-in-out;
+  position: fixed;
+  border-radius: @border-radius-base;
+  padding: 1rem 1.5rem;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  box-shadow: @box-shadow-toast;
+  visibility: hidden;
+  animation: transFormUp 0.4s @animation-bezier-base;
+
+}
+
+@keyframes transFormDown {
+  0% {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes transFormUp {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 0;
+  }
+}

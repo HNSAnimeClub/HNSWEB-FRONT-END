@@ -9,16 +9,19 @@ import React, {useState} from 'react'
 import style from './miLuoExample.module.less'
 
 function MiLuoExample() {
-  const [title, setTitle] = useState(0)
+  const [title, setTitle] = useState({name: "罗翔", age: "18"})
 
   const handleClick = () => {
-    setTitle(!title)
+
+    setTitle((pre) => {
+      title.name = "张三"
+      return {...pre, ...title}
+    })
   }
   return (
     <div>
-      <h1 className={`${title ? style.title : style.titlePrimary}`}>我是米洛</h1>
+      <h1 className={`${title ? style.title : style.titlePrimary}`}>{title.name} {title.age}</h1>
       <button onClick={handleClick}>按钮点击变化</button>
-      {title && <span>123</span>}
     </div>
   )
 }
