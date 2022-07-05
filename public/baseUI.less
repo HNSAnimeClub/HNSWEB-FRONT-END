@@ -10,8 +10,8 @@
 @success-color: #52c41a; // 成功色
 @warning-color: #faad14; // 警告色
 @error-color: #f5222d; // 错误色
-@font-size-base: 1.6rem; // 主字号
-@font-size-secondary: 1.4rem; // 次级字号
+@font-size-base: 1rem; // 主字号
+@font-size-secondary: 0.875rem; // 次级字号
 @heading-color: rgba(0, 0, 0, 0.85); // 标题色
 @text-color: rgba(0, 0, 0, 0.65); // 主文本色
 @text-color-secondary: rgba(0, 0, 0, 0.45); // 次文本色
@@ -30,7 +30,7 @@
 @border-box-error-shadow: 0 0 0.3rem 0 lighten(@error-color, 15%); // 输入框错误边缘高亮
 @border-box-success-shadow: 0 0 0.3rem 0 lighten(@success-color, 15%); // 输入框正确边缘高亮
 @border-diffuse-Anime: borderDiffuseAnime;
-@zoom-Anime: zoom-Anime;
+@flexible-Anime: flexible-Anime;
 @transform-Anime: transForm;
 body {
   font-size: 16px;
@@ -48,8 +48,8 @@ body {
   }
 }
 
-// 缩放动画
-@keyframes zoom-Anime {
+// 弹性动画
+@keyframes flexible-Anime {
   0% {
     transform: scale(1);
   }

@@ -7,15 +7,25 @@
 
 import React from 'react';
 import style from './test.module.less'
-import HNSCheckBox from "../baseUI/hnsCheckBox/HNSCheckBox";
+import HNSToast from "../baseUI/hnsToast/HNSToast";
+import HNSButton from "../baseUI/hnsButton/HNSButton";
 
 
 function Test(props) {
 
+  let messageNode = (
+    <div className={style.test}>
+      helloaaaaaaaaaaaaaaaaaaa
+    </div>
+  )
+  const handleClick = () => {
+    messageNode = 1
+    HNSToast.message(messageNode)
+  }
   return (
     <div className={style.container}>
-      <h1>hello</h1>
-      <HNSCheckBox name={"checkBox"} className={style.checkBox} label={<span>我保证和大家<a>好好相处！</a></span>}/>
+      <HNSToast delay={2}/>
+      <HNSButton onClick={handleClick}>按钮</HNSButton>
     </div>
   );
 }

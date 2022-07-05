@@ -10,7 +10,7 @@
 |   name    |              String              |  true/false   |  否  | false |        选择框的属性名 （{name:value}）        |
 | className | style.className/style[className] |    任意样式变量     |  否  |   空   | 可以定制组件的样式，但需要在定制样式后添加 !important 关键字 |
 
-### 注意
+### <font color="ff6987">注意</font>
 `HNS-CheckBox` 应尽可能配合 `HNS-Form` 组件使用，虽然也可以给该组件传递 `onClick` 函数拿到结果。
 
 **使用示例：**

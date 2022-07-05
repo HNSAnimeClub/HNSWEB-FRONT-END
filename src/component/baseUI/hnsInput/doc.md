@@ -19,6 +19,7 @@
 |    result    |              String              | function(result) |  否  |  空   |             通过该属性拿到输入框的值与错误检验函数的结果              |
 |  className   | style.className/style[className] |      任意样式变量      |  否  |  空   |      可以定制组件的样式，但需要在定制样式后添加 !important 关键字       |
 
+### <font color="ff6987">注意</font>
 推荐和`HNSForm`组件一起使用
 
 **使用示例：**
