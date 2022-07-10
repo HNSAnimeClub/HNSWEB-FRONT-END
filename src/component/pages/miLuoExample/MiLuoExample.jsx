@@ -1,29 +1,22 @@
 /**
  * @name: MiLuoExample.jsx
  * @author: 米洛
- * @date: 2022-07-03 15:21
- * @description：米洛的示例组件
+ * @date: 2022-07-10 15:25
+ * @description：米洛组件
  */
 
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import style from './miLuoExample.module.less'
 
-function MiLuoExample() {
-  const [title, setTitle] = useState({name: "罗翔", age: "18"})
 
-  const handleClick = () => {
-
-    setTitle((pre) => {
-      title.name = "张三"
-      return {...pre, ...title}
-    })
-  }
+function MiLuoExample(props) {
+  console.log(props)
   return (
     <div>
-      <h1 className={`${title ? style.title : style.titlePrimary}`}>{title.name} {title.age}</h1>
-      <button onClick={handleClick}>按钮点击变化</button>
+      <button className={props.type === "red" ? style.button1 : ""}>{props.children}</button>
     </div>
-  )
+
+  );
 }
 
-export default MiLuoExample
+export default MiLuoExample;

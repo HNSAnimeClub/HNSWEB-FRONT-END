@@ -35,9 +35,12 @@ function HNSModel(props) {
           <IconClose size={18} onClick={handleClose}/>
         </div>
         {children}
-        <div className={style.toolBar}>
-          {toolBar}
-        </div>
+        {
+          toolBar &&
+          <div className={style.toolBar}>
+            {toolBar}
+          </div>
+        }
       </div>
     </div>
 
