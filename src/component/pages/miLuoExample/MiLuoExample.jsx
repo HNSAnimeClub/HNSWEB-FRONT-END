@@ -10,10 +10,16 @@ import style from './miLuoExample.module.less'
 
 
 function MiLuoExample(props) {
-  console.log(props)
+
+  // const handleChange = (e) => {
+  //   props.result(e.target.value)
+  // }
+  const handleChange = (e) => {
+    props.result(e.target.value)
+  }
   return (
     <div>
-      <button className={props.type === "red" ? style.button1 : ""}>{props.children}</button>
+      <input onChange={handleChange}/>
     </div>
 
   );
