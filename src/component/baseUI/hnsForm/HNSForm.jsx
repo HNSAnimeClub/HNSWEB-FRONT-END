@@ -80,7 +80,6 @@ function HNSForm(props) {
     const {children} = props
     if (children instanceof Array) {
       for (let i = 0; i < children.length; i++) {
-        console.log(children[i])
         if (!(children[i].props.require || children[i].props.checkTypeReg) && children[i].type.name === "HNSInput") {
           throw new Error('不允许所有表单均无限制条件')
         }

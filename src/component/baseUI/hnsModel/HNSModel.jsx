@@ -5,7 +5,7 @@
  * @description：弹出框
  */
 
-import React, {useEffect, useRef} from 'react';
+import React, {useRef} from 'react';
 import style from './hnsModel.module.less'
 import IconClose from "../../../icon/iconClose/IconClose";
 
@@ -30,17 +30,12 @@ function HNSModel(props) {
     <div className={visible ? style.controllerActive : style.controllerClose} ref={controller}
          onClick={clickMaskToClose}>
       <div className={style.main} style={{width, height}}>
-        <div className={style.titleController}>
-          <span className={style.title}>{title}</span>
-          <IconClose size={18} onClick={handleClose}/>
+        <div className={style.titleController} style={{borderBottom: title ? "" : "none"}}>
+          {title && <span className={style.title}>{title}</span>}
+          <IconClose className={style.iconClose} size={18} onClick={handleClose}/>
         </div>
         {children}
-        {
-          toolBar &&
-          <div className={style.toolBar}>
-            {toolBar}
-          </div>
-        }
+        {toolBar && <div className={style.toolBar}>{toolBar}</div>}
       </div>
     </div>
 
