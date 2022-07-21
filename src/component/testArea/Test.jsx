@@ -12,13 +12,13 @@ import MiLuoExample from "../pages/miLuoExample/MiLuoExample";
 
 function Test(props) {
 
-  return (
-    <div className={style.container}>
-      <MiLuoExample type={"red"} color={"xxx"}>
-        哈哈哈哈
-      </MiLuoExample>
-    </div>
-  );
+    return (
+        <div className={style.container}>
+            <MiLuoExample type={"red"} color={"xxx"}>
+                哈哈哈哈
+            </MiLuoExample>
+        </div>
+    );
 }
 
 export default Test;
