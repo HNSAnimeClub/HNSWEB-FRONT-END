@@ -4,7 +4,7 @@
 <img src="https://img.shields.io/badge/React-v17.02-%231890ff"/> <img src="https://img.shields.io/badge/React--router-v6.3.2-1890ff"/>
 
 
-**克隆到本地仓库后安装依赖:*gi*
+**克隆到本地仓库后安装依赖:**
 ### `npm install`
 
 **启动项目:**
