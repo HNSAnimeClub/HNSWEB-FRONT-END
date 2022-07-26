@@ -41,7 +41,11 @@ export default function RouterConfig() {
       <Suspense fallback={<h1>加载中... 后续此处可以替换为精心设计的加载组件，加载组件不允许懒加载</h1>}>
         <Routes>
           <Route path={"/"} element={<App/>} key={nanoid()}/>
-          <Route path={"/test"} element={<Test/>} key={nanoid()}/>
+          <Route path={"/test"} element={<Test/>} key={nanoid()}>
+            {/*<Route path={"abc"} element={<div>哈哈哈哈</div>} key={nanoid()}/>*/}
+            <Route path={"abc"} element={<p>子组件</p>}/>
+          </Route>
+
           {
             router.map(item => {
               return (

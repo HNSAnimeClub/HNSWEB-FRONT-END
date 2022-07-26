@@ -10,7 +10,7 @@
 |   title    |     弹出框标题     |    字符串     |  否  |   空   |    弹出框的标题     |
 |   width    | Number/String |   数值/字符串   |  否  |   空   |    弹出框的宽度     |
 |   height   | Number/String |   数值/字符串   |  否  |   空   |    弹出框的高度     |
-|  toolBar   |  React1.Node   |  React结点   |  否  |   空   |     底部工具栏     |
+|  toolBar   |  React1.Node  |  React结点   |  否  |   空   |     底部工具栏     |
 | modelClose |   function    |   任意回调函数   |  是  |   空   |  用于弹出框的取消关闭   |
 
 ### <font color="ff6987">注意</font>
