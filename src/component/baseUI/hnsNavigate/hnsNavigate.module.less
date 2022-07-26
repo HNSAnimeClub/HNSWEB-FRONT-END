@@ -1,0 +1,166 @@
+/**
+* @name: hnsNavigate.module.less
+* @author: 米洛
+* @date: 2022-07-17 20:42
+* @description：导航栏
+*/
+:root {
+  --max-height: 0;
+}
+
+.base {
+  box-sizing: border-box;
+}
+
+.topMode {
+  display: grid;
+  width: 100vw;
+  gap: 0.5rem;
+  height: 5.25rem;
+  padding: 1rem;
+  grid-template-columns: minmax(10rem, 1fr) minmax(20rem, 1fr) minmax(10em, 4fr) minmax(15rem, 3fr);
+  background: white;
+  //position: absolute;
+  top: 0;
+  left: 0;
+  align-items: center;
+}
+
+.toolBar {
+  justify-self: flex-end;
+  align-items: center;
+}
+
+.avatar {
+  cursor: pointer;
+}
+
+.topList {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  height: 100%;
+  padding-left: 0;
+
+  .topBar {
+    font-weight: bold;
+    color: @heading-color;
+    cursor: pointer;
+    display: flex;
+    list-style: none;
+    height: 100%;
+    width: 4rem;
+    justify-content: center;
+    align-items: center;
+    line-height: 100%;
+  }
+
+  li:hover {
+    color: @text-color;
+  }
+}
+
+.sideMode {
+  min-height: 100vh;
+  width: 15vw;
+  min-width: 12rem;
+  float: left;
+  background: white;
+  margin-right: 1.5rem;
+}
+
+// 侧边栏模式，紧跟其后的第一个DOM元素会出现在侧边栏的右边，其余元素恢复正常排列数序
+// "+" 代表 .sideMode 后的 第一个兄弟元素（这个元素一般为该页面的右侧主体部分），* 代表任意标签，
+// 即 .sideMode 的第一个兄弟元素后面的所有元素均清除浮动
+.sideMode + * ~ * {
+  clear: left;
+}
+
+.sideBarHead {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  margin-bottom: 1rem;
+}
+
+.mainMenu {
+  margin-left: 0;
+  padding: 1rem;
+  min-height: 90vh;
+
+  .firstLi {
+    list-style: none;
+    border-radius: @border-radius-base;
+    cursor: pointer;
+    color: @text-color;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    //overflow: hidden;
+  }
+}
+
+.secondMenu {
+  font-weight: normal !important;
+  padding-left: 0;
+  list-style: none;
+  transition: 0.3s @animation-bezier-base;
+  height: 0;
+  overflow: hidden;
+
+  li {
+    padding: 0.5rem;
+    min-height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: @border-radius-base;
+  }
+}
+
+.ulActive {
+  color: @primary-color;
+}
+
+.liActive {
+  transition: ease-in-out 0.3s;
+  background: lighten(@primary-color, 10%);
+  color: white !important;
+}
+
+.category {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.openMenu {
+  transition: 0.3s @animation-bezier-base;
+  height: auto;
+}
+
+.singleMenu {
+  list-style: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: @text-color;
+  border-radius: @border-radius-base;
+  font-weight: bold;
+}
+
+.icon {
+  margin-right: 0.5rem;
+}
+
+.iconDown {
+  transition: 0.3s @animation-bezier-base;
+  transform: rotate(0deg);
+}
+
+.iconDownOpen {
+  transform: rotate(180deg);
+
+  path {
+    stroke: @primary-color !important;
+  }
+}
