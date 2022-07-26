@@ -8,7 +8,7 @@
 import React ,{useState} from "react";
 import style from './Graniexample.module.less'
 
-function GraniExample() {
+/*function GraniExample() {
 
     const [title, setTitle] = useState({name: "斯卡蒂", age: "20"})
 
@@ -30,7 +30,7 @@ function GraniExample() {
 }
 
 
-/*function GraniExample() {
+function GraniExample() {
     const[content,setContent]=useState("")
     const handleChange=(text)=>{
         setContent(text.target.value)
@@ -44,5 +44,19 @@ function GraniExample() {
     )
 }
 */
+function GraniExample(props){
+    const [Content,setContent]=useState("")
+    const handleChange = (e)=>{
+        setContent(e.target.value)
+        props.result(e.target.value)
+    }
+    return(
+        <div className={style.container}>
+            <input onChange={handleChange}/>
+            <h1>{Content}</h1>
+        </div>
+    );
+}
+
 
 export default GraniExample

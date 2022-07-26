@@ -9,12 +9,13 @@
 import React, {useState} from "react";
 import style from './wzFuHaoExample002.module.less'
 
-function WzFuHao002() {
+function WzFuHao002(props) {
     const [Content, setContent] = useState("")
 
 
     const handleChange = (e) => {
         setContent(e.target.value)
+        props.result(e.target.value)
     }
 
 
