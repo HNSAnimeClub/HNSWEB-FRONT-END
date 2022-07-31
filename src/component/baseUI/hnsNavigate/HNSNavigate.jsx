@@ -14,6 +14,7 @@ import pic from '../../../logo.svg'
 import IconDown from "../../../icon/iconDown/iconDown";
 import style from './hnsNavigate.module.less'
 
+
 function HNSNavigate(props) {
   let {type, dataSource, rootLink} = props
   let navigate = useNavigate()
