@@ -5,20 +5,18 @@
  * @description：用于组件测试的沙盒（试验田）
  */
 
-import React, {useState} from 'react';
+import React from 'react';
 import style from './test.module.less'
-import MiLuoExample from "../pages/miLuoExample/MiLuoExample";
+import HNSRate from "../baseUI/hnsRate/HNSRate";
 
 
 function Test(props) {
 
-    return (
-        <div className={style.container}>
-            <MiLuoExample type={"red"} color={"xxx"}>
-                哈哈哈哈
-            </MiLuoExample>
-        </div>
-    );
+  return (
+    <div className={style.container}>
+      <HNSRate defaultRate={4}/>
+    </div>
+  );
 }
 
 export default Test;
