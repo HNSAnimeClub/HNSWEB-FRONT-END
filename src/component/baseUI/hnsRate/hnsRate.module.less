@@ -1,0 +1,41 @@
+/**
+* @name: hnsRate.module.less
+* @author: 米洛
+* @date: 2022-07-30 21:06
+* @description：hnsRate 样式
+*/
+
+.main {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.star {
+  cursor: pointer;
+}
+
+.starActive {
+  animation: starTransition @animation-bezier-base 0.3s;
+  path {
+    fill: lighten(@primary-color, 5%) !important;
+    box-shadow: 0 0 0.3rem 0 lighten(@primary-color, 15%) !important;
+  }
+}
+
+@keyframes starTransition {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50%{
+    transform: scale(1.1);
+  }
+  75%{
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

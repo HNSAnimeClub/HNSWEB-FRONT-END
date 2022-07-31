@@ -5,13 +5,11 @@
  * @description：用于组件测试的沙盒（试验田）
  */
 
-import React, {useMemo, useState, memo} from 'react';
+
+import React from 'react';
 import style from './test.module.less'
-import HNSNavigate from "../baseUI/hnsNavigate/HNSNavigate";
-import {Route, Routes, Outlet} from "react-router-dom";
-import {Menu} from "antd";
-import {useNavigate} from "react-router";
-import HNSButton from "../baseUI/hnsButton/HNSButton";
+import HNSRate from "../baseUI/hnsRate/HNSRate";
+
 
 
 function Test(props) {
@@ -72,11 +70,7 @@ function Test(props) {
 
   return (
     <div className={style.container}>
-      <HNSNavigate dataSource={sideData} type={"side"} changeItem={changeItem}/>
-      <div>
-        导航栏右侧主要展示区域
-        {item}
-      </div>
+      <HNSRate defaultRate={4}/>
     </div>
   );
 }
