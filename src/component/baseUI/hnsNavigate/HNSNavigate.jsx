@@ -6,13 +6,14 @@
  */
 
 import React, {Fragment, useRef, memo} from 'react';
-import style from './hnsNavigate.module.less'
 import HNSSearch from "../hnsSearch/HNSSearch";
 import {nanoid} from "nanoid";
 import {useNavigate} from "react-router";
 import HNSAvatar from "../hnsAvatar/HNSAvatar";
 import pic from '../../../logo.svg'
 import IconDown from "../../../icon/iconDown/iconDown";
+import style from './hnsNavigate.module.less'
+
 
 function HNSNavigate(props) {
   let {type, dataSource, rootLink} = props
@@ -25,7 +26,6 @@ function HNSNavigate(props) {
     if (type === "top" || !type) return style.topMode
     else return style.sideMode
   }
-  console.log("memoComponent")
 
   // 路由跳转
   const routerTrans = (link) => {

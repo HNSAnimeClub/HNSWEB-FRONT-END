@@ -12,7 +12,7 @@
 
 ### <font color="ff6987">注意</font>
 
-+ `HNS-Navigate` 有两种模式 分别为 `top` 与 `side` 代表其位置位于顶部与侧边栏。
++ `HNS-Navigate` 有两种模式 分别为 `top` 与 `side` 代表其位置位于顶部与侧边。
 + 当 模式为 `top` 时，`dataSource` 的数组列表中的子对象<font color="ff6987">应有</font> `link` 属性
 + 当 模式为 `side` 时，`link` 属性将失效，取而代之的子对象<font color="ff6987">应有</font> `component` 属性
 + `HNS-Navigate` <font color="ff6987">现阶段的设计不够成熟</font>，因为 `setState(component)` 会导致视图重新刷新，导致选中菜单的样式丢失。即使利用 `React.memo()` 
