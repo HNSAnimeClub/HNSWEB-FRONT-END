@@ -6,21 +6,52 @@
  * @update: 2022-07-03 15:21
  */
 
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import style from './ozzyExample.module.less'
+import {filter} from "core-js/internals/array-iteration";
 
 function OzzyExample() {
-    const [state, setState] = useState(true)
+
+    const [data, setData] = useState([
+        {
+            name: "Ozzy"
+        }
+    ])
+
+    const input = useRef()
 
     const handleClick = () => {
-        setState(!state)
+        let {value} = input.current
+        data.push(
+            {
+                name: value
+            }
+        )
+        setData([...data])
+    }
+
+    const deleteClick = (targetIndex) => {
+        let temp = data.filter((item, index) => index !== targetIndex)
+        setData(temp)
     }
 
     return (
         <div className={style.container}>
-            <span className={state ? style.title : style.titlePrimary}>{state ? "好家伙" : "az"}</span>
-            <button onClick={handleClick}>点击按钮发生变化</button>
-            {state && <span>wocao</span>}
+            <ul>
+                {
+                    data.map((item,index) => {
+                        return (
+                            <li key={item+index} onClick={event => deleteClick(index)}>{item.name}</li>
+                        )
+                    })
+                }
+
+            </ul>
+            <div>
+                <input ref={input}/>
+                <button onClick={handleClick}>提交</button>
+            </div>
+
         </div>
     )
 }

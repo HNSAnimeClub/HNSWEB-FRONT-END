@@ -16,7 +16,9 @@ function Test(props) {
 
   return (
     <div className={style.container}>
+
       <HNSRate defaultRate={4}/>
+
     </div>
   );
 }
