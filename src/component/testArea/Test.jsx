@@ -72,7 +72,7 @@ function Test(props) {
 
   return (
     <div className={style.container}>
-      <HNSNavigate dataSource={sideData} type={"side"} changeItem={changeItem}/>
+      <HNSNavigate dataSource={topData} type={"top"} changeItem={changeItem}/>
       <div>
         导航栏右侧主要展示区域
         {item}
