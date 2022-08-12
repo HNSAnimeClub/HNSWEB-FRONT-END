@@ -1,0 +1,64 @@
+/**
+* @name: hnsSwitchNavigate.module.less
+* @author: 米洛
+* @date: 2022-08-06 21:43
+* @description：该文件的描述
+*/
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.slideBar {
+  position: absolute;
+  background: @primary-color;
+  height: 1.5px;
+  border-radius: @border-radius-base;
+  bottom: 0;
+  transition: all 0.3s ease;
+}
+
+.slideBarControl {
+  position: relative;
+  background: white;
+  padding: 0.5rem 2rem;
+  border-bottom: fade(@text-color,20%) 0.5px solid;
+}
+
+.item {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1.2vw;
+}
+
+.itemActive {
+  animation: ease textFade 0.3s;
+  color: @primary-color;
+
+  path {
+    animation: ease iconFade 0.3s;
+    stroke: @primary-color;
+  }
+
+}
+
+@keyframes textFade {
+  0% {
+    color: @text-color;
+  }
+  100% {
+    color: @primary-color;
+  }
+}
+
+@keyframes iconFade {
+  0% {
+    stroke: @text-color;
+  }
+  100% {
+    stroke: @primary-color;
+  }
+}

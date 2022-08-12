@@ -8,10 +8,10 @@
 // 一段时间内多次执行只取最后一次的结果
 export const debounce = (callBack, delay) => {
   let time = null
-  return () => {
+  return function (...args) {
     if (time) clearTimeout(time)
     time = setTimeout(() => {
-      callBack()
+      callBack.apply(this, args)
     }, delay)
   }
 }

@@ -6,19 +6,77 @@
  */
 
 
-import React from 'react';
+import React, {useState} from 'react';
 import style from './test.module.less'
-import HNSRate from "../baseUI/hnsRate/HNSRate";
-
+import IconLike from "../../icon/iconLike/iconLike";
+import IconHeart from "../../icon/iconHeart/iconHeart";
+import IconAll from "../../icon/iconAll/iconAll";
+import HNSSwitchNavigate from "../baseUI/hnsSwitchNavigate/HNSSwitchNavigate";
 
 
 function Test(props) {
-
+  const data = [
+    {
+      title: "为你推荐",
+      icon: <IconLike/>
+    }, {
+      title: "我的关注",
+      icon: <IconHeart/>
+    }, {
+      title: "全部圈子",
+      icon: <IconAll/>
+    }, {
+      title: "全部圈子22",
+    },
+  ]
+  const component = ["组件1", "组件2", "组件3"]
+  const [target, setTarget] = useState(0)
+  const switchComponents = (index) => {
+    setTarget(index)
+  }
   return (
     <div className={style.container}>
-
-      <HNSRate defaultRate={4}/>
-
+      <HNSSwitchNavigate dataSource={data} switchComponents={switchComponents} mode={"right"}/>
+      <p>{component[target]}</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
+      <p>1</p>
     </div>
   );
 }
