@@ -21,3 +21,4 @@ export const addStyleSheet = (node, styleObj) => {
     node.style.setProperty(key, styleObj[key])
   }
 }
+

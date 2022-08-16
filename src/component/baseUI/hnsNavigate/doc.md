@@ -1,6 +1,6 @@
 # HNS Navigate 组件（导航栏）
 
-<img src="https://img.shields.io/badge/HNS--Navigate-v1.0-ff6987" alt="HNS-Model">
+<img src="https://img.shields.io/badge/HNS--Navigate-v1.1-ff6987" alt="HNS-Model">
 
 **可传参数**
 
@@ -15,8 +15,7 @@
 + `HNS-Navigate` 有两种模式 分别为 `top` 与 `side` 代表其位置位于顶部与侧边。
 + 当 模式为 `top` 时，`dataSource` 的数组列表中的子对象<font color="ff6987">应有</font> `link` 属性
 + 当 模式为 `side` 时，`link` 属性将失效，取而代之的子对象<font color="ff6987">应有</font> `component` 属性
-+ `HNS-Navigate` <font color="ff6987">现阶段的设计不够成熟</font>，因为 `setState(component)` 会导致视图重新刷新，导致选中菜单的样式丢失。即使利用 `React.memo()` 
-也无法阻止强制渲染。 在未来我们将会对其进行改进或重构。
++ `HNS-Navigate` 完成了基本地重构，暂无重大缺陷。
 
 **使用示例：**
 

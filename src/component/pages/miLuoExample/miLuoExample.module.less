@@ -26,3 +26,26 @@
 .button2 {
   background: blue;
 }
+
+.item {
+  width: 200px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.itemActive {
+  animation: changeColor ease 0.3s;
+  background: red;
+  color: white;
+}
+
+@keyframes changeColor {
+  0% {
+    background: transparent;
+    color: black;
+  }
+  100% {
+    background: red;
+    color: white;
+  }
+}

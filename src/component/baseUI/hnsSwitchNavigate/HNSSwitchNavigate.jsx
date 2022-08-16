@@ -76,6 +76,7 @@ function HNSwitchNavigate(props) {
     getPosition()
 
   }
+
   return (
     <div className={style.slideBarControl}>
       <div className={style.container} ref={container} id={"container"}
@@ -84,9 +85,9 @@ function HNSwitchNavigate(props) {
           dataSource.map((item, index) => {
             return (
               <div key={nanoid()} onClick={event => handleClick(event, index)}
-                   className={`${style.item} ${target === index && style.itemActive}`}>
+                   className={`${style.item} ${target === index ? style.itemActive : ""}`}>
                 {item.icon && item.icon}
-                <span>{item.title}</span>
+                <span className={item.icon && style.title}>{item.title}</span>
               </div>
             )
           })

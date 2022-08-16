@@ -84,83 +84,111 @@
   margin-bottom: 1rem;
 }
 
-.mainMenu {
-  margin-left: 0;
-  padding: 1rem;
-  min-height: 90vh;
-
-  .firstLi {
-    list-style: none;
-    border-radius: @border-radius-base;
-    cursor: pointer;
-    color: @text-color;
-    padding: 0.5rem 1rem;
-    font-weight: bold;
-    //overflow: hidden;
-  }
-}
-
-.secondMenu {
-  font-weight: normal !important;
-  padding-left: 0;
-  list-style: none;
-  transition: 0.3s @animation-bezier-base;
-  height: 0;
-  overflow: hidden;
-
-  li {
-    padding: 0.5rem;
-    min-height: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: @border-radius-base;
-  }
-}
-
-.ulActive {
-  color: @primary-color;
-}
-
+// 激活li样式
 .liActive {
+  animation: fadeEffect ease 0.3s;
   transition: ease-in-out 0.3s;
   background: lighten(@primary-color, 10%);
   color: white !important;
 }
 
+// 最外层 ul, 内部li
+.ulMenuBase {
+  list-style: none;
+  padding: 0 2vw;
+
+
+  li {
+    padding: 0.5rem 0.5rem;
+  }
+}
+
+// 一级菜单
+.singleMenu {
+  list-style: none;
+  cursor: pointer;
+  color: @text-color;
+  border-radius: @border-radius-base;
+}
+
+// 二级菜单的最外层li
+.firstLi {
+  //margin-bottom: 2vh;
+}
+
+// 二级菜单分类标题(span)
 .category {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
-}
-
-.openMenu {
-  transition: 0.3s @animation-bezier-base;
-  height: auto;
-}
-
-.singleMenu {
-  list-style: none;
-  padding: 0.5rem 1rem;
+  align-items: center;
   cursor: pointer;
-  color: @text-color;
-  border-radius: @border-radius-base;
-  font-weight: bold;
 }
 
+// 二级菜单 ul
+.secondMenu {
+  list-style: none;
+  padding-left: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+// 二级子菜单 li
+.secondMenuChild {
+  box-sizing: border-box;
+  text-align: center;
+  padding: 2vh 0;
+  border-radius: @border-radius-base;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// 二级菜单图标
 .icon {
   margin-right: 0.5rem;
 }
 
-.iconDown {
+
+// 打开二级菜单
+.openSecondMenu {
   transition: 0.3s @animation-bezier-base;
+  height: auto;
+}
+
+
+.iconDown {
   transform: rotate(0deg);
 }
 
 .iconDownOpen {
+  animation: iconDownOpenAnime @animation-bezier-base 0.3s;
   transform: rotate(180deg);
 
   path {
     stroke: @primary-color !important;
+  }
+}
+
+@keyframes iconDownOpenAnime {
+  0% {
+  }
+  100% {
+    transform: rotate(180deg);
+
+    path {
+      stroke: @primary-color !important;
+    }
+  }
+}
+
+
+@keyframes fadeEffect {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: lighten(@primary-color, 10%);
   }
 }

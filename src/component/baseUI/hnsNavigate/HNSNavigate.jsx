@@ -5,7 +5,7 @@
  * @description：导航栏
  */
 
-import React, {Fragment, useRef, memo} from 'react';
+import React, {Fragment, useRef, memo, useState, useEffect} from 'react';
 import HNSSearch from "../hnsSearch/HNSSearch";
 import {nanoid} from "nanoid";
 import {useNavigate} from "react-router";
@@ -21,6 +21,14 @@ function HNSNavigate(props) {
   const sideBar = useRef(null)
   const ulDOM = useRef(null)
   const secondUl = useRef(null)
+
+  // 获取二级菜单的个数
+  const getExpandNum = () => {
+    for (const item of dataSource) {
+      if (item.children) openMenu.push(false)
+    }
+  }
+
   // 模式切换
   const modeChange = () => {
     if (type === "top" || !type) return style.topMode
@@ -37,59 +45,35 @@ function HNSNavigate(props) {
     navigate()
   }
 
-  // 多级菜单点击事件添加样式和跳转
-  const sideBarOnClick = (e, component) => {
+  // 控制单级菜单
+  const [target, setTarget] = useState(null)
+  const sideBarOnClick = (e, component, index) => {
     e.stopPropagation()
-    let listChildren = ulDOM.current.children;
-    for (let i = 0; i < listChildren.length; i++) {
-      // 有子节点证明是二级菜单，要遍历清除。有改进空间：记录上一次点击的dom元素，每次点击清除上一次的类
-      if (listChildren[i].children.length > 0) {
-        for (let j = 0; j < listChildren[i].children[1].children.length; j++) {
-          listChildren[i].children[1].children[j].classList.remove(style.liActive)
-        }
-      } else
-        listChildren[i].classList.remove(style.liActive)
-    }
+    setParent(index)
+    props.changeItem(component)
+    setTarget(index)
+  }
 
-    if (e.target.tagName === "LI") {
-      e.target.classList.add(style.liActive)
-      // 当模式为 侧边栏时 点击子菜单将返回对应组件
-      props.changeItem(component)
-    }
+  // 控制多级菜单
+  const multiMenuControl = (e, parentIndex, childIndex, component) => {
+    e.stopPropagation()
+    setParent(parentIndex)
+    setTarget(childIndex)
+    props.changeItem(component)
   }
 
   // 展开子级菜单样式
-  const expandSecondMenu = (e) => {
-    let ulDOM = null
-    const toggleDOM = (dom, style) => {
-      dom.classList.toggle(style)
-    }
-    if (e.target.tagName === "LI") {
-      ulDOM = e.target.children[1]
-      toggleDOM(ulDOM, style.openMenu)
-      toggleDOM(e.target.children[0].children[0], style.iconDownOpen)
-      toggleDOM(e.target.children[0], style.ulActive)
-    }
-    if (e.target.tagName === "SPAN") {
-      ulDOM = e.target.nextElementSibling
-      toggleDOM(ulDOM, style.openMenu)
-      toggleDOM(e.target.children[0], style.iconDownOpen)
-      toggleDOM(e.target, style.ulActive)
-    }
-    if (e.target.tagName === "svg") {
-      ulDOM = e.target.parentNode.nextElementSibling
-      toggleDOM(ulDOM, style.openMenu)
-      toggleDOM(e.target, style.iconDownOpen)
-      toggleDOM(e.target.parentNode, style.ulActive)
-    }
-    if (e.target.tagName === "path") {
-      ulDOM = e.target.parentNode.parentNode.nextElementSibling
-      toggleDOM(ulDOM, style.openMenu)
-      toggleDOM(e.target.parentNode, style.iconDownOpen)
-      toggleDOM(e.target.parentNode.parentNode, style.ulActive)
-    }
+  const [parentTargetState, setParent] = useState(null)
+  // 控制子菜单是展开的
+  const [openMenu, setOpenMenu] = useState([])
+  const expandSecondMenu = (e, index) => {
+    openMenu[index] = !openMenu[index]
+    setOpenMenu([...openMenu])
   }
 
+  useEffect(() => {
+    getExpandNum()
+  }, [])
 
   return (
     <>
@@ -117,29 +101,37 @@ function HNSNavigate(props) {
         type === "side" &&
         <div className={style.sideMode} ref={sideBar}>
           <div className={style.sideBarHead}>HNS 禁书库</div>
-          <ul className={style.mainMenu} ref={ulDOM}>
+          <ul className={style.ulMenuBase} ref={ulDOM}>
             {
-              dataSource.map((item, index) => {
+              dataSource.map((item, parentIndex) => {
                 return (
                   <Fragment key={nanoid()}>
                     {
                       !item.children &&
-                      <li className={style.singleMenu} key={nanoid()}
-                          onClick={event => sideBarOnClick(event, item.component)}>{item.category}</li>
+                      <li className={`${style.singleMenu} ${target === parentIndex ? style.liActive : ""}`}
+                          key={nanoid()}
+                          onClick={event => sideBarOnClick(event, item.component, parentIndex)}>{item.category}</li>
                     }
                     {
                       item.children &&
-                      <li key={nanoid()} className={style.firstLi} onClick={event => expandSecondMenu(event)}>
+                      <li key={nanoid()} className={style.firstLi}
+                          onClick={event => expandSecondMenu(event, parentIndex)}>
                         <span className={style.category}>
                           {item.icon && <span>{item.icon}</span>}
                           {item.category}
-                          <IconDown className={style.iconDown}/>
+                          <IconDown className={`${style.iconDown} ${openMenu[parentIndex] ? style.iconDownOpen : ""}`}/>
                         </span>
-                        <ul className={`${style.secondMenu}`} ref={secondUl}>
+                        <ul
+                          className={`${style.secondMenu} ${openMenu[parentIndex] ?
+                            style.openSecondMenu : ""}`}>
                           {
                             item.children.map((item, index) => {
                               return (
-                                <li key={nanoid()} onClick={event => sideBarOnClick(event, item.component)}>
+                                <li key={nanoid()}
+                                    className={`${style.secondMenuChild} ${(target === index) &&
+                                    parentTargetState === parentIndex && openMenu[parentIndex]
+                                      ? style.liActive : ""}`}
+                                    onClick={event => multiMenuControl(event, parentIndex, index, item.component)}>
                                   {item.icon && <span className={style.icon}>{item.icon}</span>}
                                   {item.category}
                                 </li>
@@ -160,4 +152,4 @@ function HNSNavigate(props) {
   );
 }
 
-export default memo(HNSNavigate);
+export default HNSNavigate;
