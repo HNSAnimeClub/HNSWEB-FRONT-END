@@ -8,75 +8,50 @@
 
 import React, {useState} from 'react';
 import style from './test.module.less'
-import IconLike from "../../icon/iconLike/iconLike";
-import IconHeart from "../../icon/iconHeart/iconHeart";
-import IconAll from "../../icon/iconAll/iconAll";
-import HNSSwitchNavigate from "../baseUI/hnsSwitchNavigate/HNSSwitchNavigate";
+import HNSNavigate from "../baseUI/hnsNavigate/HNSNavigate";
+import IconUp from "../../icon/iconUp/iconUp";
 
 
 function Test(props) {
-  const data = [
+  const sideData = [
     {
-      title: "为你推荐",
-      icon: <IconLike/>
+      category: "用户管理",
+      children: [
+        {
+          category: "用户二级菜单",
+          component: <p>二级菜单主体1</p>,
+        }, {
+          category: "用户二级菜单",
+          component: <p>二级菜单主体2</p>,
+        }
+      ]
     }, {
-      title: "我的关注",
-      icon: <IconHeart/>
+      category: "评论管理",
+      children: [
+        {
+          category: "用户二级菜单",
+          component: <p>二级菜单主体3</p>,
+        }, {
+          category: "用户二级菜单",
+          component: <p>二级菜单主体4</p>,
+        }
+      ]
     }, {
-      title: "全部圈子",
-      icon: <IconAll/>
-    }, {
-      title: "全部圈子22",
-    },
+      category: "板块管理",
+      component: <p>二级菜单主体5</p>,
+    }
   ]
-  const component = ["组件1", "组件2", "组件3"]
-  const [target, setTarget] = useState(0)
-  const switchComponents = (index) => {
-    setTarget(index)
+
+  const [item, setItem] = useState(null)
+  const changeItem = (component) => {
+    setItem(component)
   }
   return (
     <div className={style.container}>
-      <HNSSwitchNavigate dataSource={data} switchComponents={switchComponents} mode={"right"}/>
-      <p>{component[target]}</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
+      <HNSNavigate dataSource={sideData} type={"side"} changeItem={changeItem}/>
+      <div>
+        {item}
+      </div>
     </div>
   );
 }
