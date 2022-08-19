@@ -1,0 +1,39 @@
+/**
+* @name: hnsBackToTop.module.less
+* @author: 米洛
+* @date: 2022-08-19 20:34
+* @description：回到顶部按钮
+*/
+
+.main {
+  background: @primary-color;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  position: fixed;
+  bottom: 10vh;
+  right: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all ease 0.3s;
+  box-shadow: 0 0.1rem 0.5rem 0 lighten(@primary-color, 15%);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.show {
+  animation: showEffect ease 0.3s;
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes showEffect {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

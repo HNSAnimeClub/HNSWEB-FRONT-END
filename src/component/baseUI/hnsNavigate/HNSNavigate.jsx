@@ -20,7 +20,6 @@ function HNSNavigate(props) {
   let navigate = useNavigate()
   const sideBar = useRef(null)
   const ulDOM = useRef(null)
-  const secondUl = useRef(null)
 
   // 获取二级菜单的个数
   const getExpandNum = () => {
@@ -119,7 +118,7 @@ function HNSNavigate(props) {
                         <span className={style.category}>
                           {item.icon && <span>{item.icon}</span>}
                           {item.category}
-                          <IconDown className={`${style.iconDown} ${openMenu[parentIndex] ? style.iconDownOpen : ""}`}/>
+                          <IconDown size={24} className={`${style.iconDown} ${openMenu[parentIndex] ? style.iconDownOpen : ""}`}/>
                         </span>
                         <ul
                           className={`${style.secondMenu} ${openMenu[parentIndex] ?
