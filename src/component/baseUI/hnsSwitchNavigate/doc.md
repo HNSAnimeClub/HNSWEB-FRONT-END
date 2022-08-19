@@ -23,7 +23,7 @@ const data = [
     icon: <IconHeart/>
   }, {
     title: "全部圈子",
-    icon: <IconAll/>
+    icon: <IconBase/>
   }, {
     title: "无图标模块",
   },
