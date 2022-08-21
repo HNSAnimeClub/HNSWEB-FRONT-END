@@ -41,7 +41,8 @@ function HNSNavigate(props) {
 
   // 获取输入框的值
   const getSearchInput = (result) => {
-    navigate()
+    console.log(result)
+    // navigate()
   }
 
   // 控制单级菜单
@@ -79,8 +80,8 @@ function HNSNavigate(props) {
       {
         (type === "top" || !type) &&
         <div className={`${style.base} ${modeChange()}`}>
-          <div>logo</div>
-          <HNSSearch onFinished={getSearchInput}/>
+          <div className={style.logo}>logo</div>
+          <HNSSearch onFinished={getSearchInput} className={style.search}/>
           <ul className={style.topList}>
             {
               dataSource && dataSource.map(item => {
@@ -91,7 +92,8 @@ function HNSNavigate(props) {
             }
           </ul>
           <div className={style.toolBar}>
-            <HNSAvatar className={style.avatar} type={"circle"} size={48} src={pic}/>
+            <HNSAvatar className={style.avatar} type={"circle"} size={48} src={pic}
+                       onClick={event => routerTrans("/userspace")}/>
           </div>
         </div>
       }
@@ -118,7 +120,8 @@ function HNSNavigate(props) {
                         <span className={style.category}>
                           {item.icon && <span>{item.icon}</span>}
                           {item.category}
-                          <IconDown size={24} className={`${style.iconDown} ${openMenu[parentIndex] ? style.iconDownOpen : ""}`}/>
+                          <IconDown size={24}
+                                    className={`${style.iconDown} ${openMenu[parentIndex] ? style.iconDownOpen : ""}`}/>
                         </span>
                         <ul
                           className={`${style.secondMenu} ${openMenu[parentIndex] ?

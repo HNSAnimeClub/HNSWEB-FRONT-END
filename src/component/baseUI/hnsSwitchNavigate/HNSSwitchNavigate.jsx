@@ -32,10 +32,6 @@ function HNSwitchNavigate(props) {
   const handleClick = (e, index) => {
     switchComponents(index)
     setTarget(index)
-    let {children} = container.current
-    for (let i = 0; i < children.length; i++) {
-      removeClass(children[i], style.itemActive)
-    }
   }
   // 获取选项卡的位置，赋值给slideBar
   // 存储item的left 和 position

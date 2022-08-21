@@ -8,12 +8,11 @@
 // 一段时间内多次执行只取最后一次的结果
 let time
 export const debounce = (callBack, delay) => {
-  clearTimeout(time);
+  if (time) clearTimeout(time);
   time = setTimeout(function () {
     callBack()
   }, delay)
 }
-
 
 // 一段时间内多次执行只取第一次的结果
 export const debounceReverse = (callBack, delay) => {

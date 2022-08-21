@@ -8,46 +8,15 @@
 
 import React, {useState} from 'react';
 import style from './test.module.less'
-import HNSBackToTop from "../baseUI/hnsBackToTop/HNSBackToTop";
+import HNSButton from "../baseUI/hnsButton/HNSButton";
 
 
 function Test(props) {
+  const handleClick = () => {
+    console.log(1)
+  }
   return (
     <div className={style.container}>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <HNSBackToTop/>
     </div>
   );
 }
