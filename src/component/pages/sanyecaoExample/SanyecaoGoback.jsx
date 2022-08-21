@@ -2,7 +2,7 @@
  * @Author: 三椰草Ω 3291875824@qq.com
  * @Date: 2022-08-21 15:01:28
  * @LastEditors: 三椰草Ω 3291875824@qq.com
- * @LastEditTime: 2022-08-21 16:26:32
+ * @LastEditTime: 2022-08-21 16:35:07
  * @FilePath: \HNSWEB-FRONT-END\src\component\pages\sanyecaoExample\SanyecaoGoback.jsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -47,7 +47,12 @@ return(
         <p>Test</p>
         <p>Test</p>
         <p>Test</p>
-        <div className={`${style.main} {show?style.show:" "}`}OnClick={handleClick}> 
+        <p>Test</p>
+        <p>Test</p>
+        <p>Test</p>
+        <p>Test</p>
+        <p>Test</p>
+        <div className={`${style.main} ${show?style.show:""}`}OnClick={handleClick}> 
         onClick={handleClick}>
             <IconArrowTop/>
         </div>
