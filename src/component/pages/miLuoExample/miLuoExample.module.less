@@ -5,47 +5,29 @@
 * @description：该文件的描述
 */
 
-.title {
-  color: red;
-}
 
-.container {
+.main {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: @primary-color;
+  position: fixed;
+  right: 3vw;
+  bottom: 10vh;
   display: flex;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
-  height: 100vh;
-}
-
-.button1 {
-  background: red;
   cursor: pointer;
-  border: none;
+  box-shadow: 0 0.1rem 0.5rem 0 lighten(@primary-color, 15%);
+  opacity: 0;
+  transition: all ease 0.3s;
+  visibility: hidden;
 }
 
-.button2 {
-  background: blue;
+.show {
+  transition: all ease 0.3s;
+  opacity: 1;
+  visibility: visible;
 }
 
-.item {
-  width: 200px;
-  height: 100px;
-  cursor: pointer;
-}
 
-.itemActive {
-  animation: changeColor ease 0.3s;
-  background: red;
-  color: white;
-}
-
-@keyframes changeColor {
-  0% {
-    background: transparent;
-    color: black;
-  }
-  100% {
-    background: red;
-    color: white;
-  }
-}

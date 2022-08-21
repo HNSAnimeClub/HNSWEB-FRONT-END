@@ -32,7 +32,7 @@ export default function RouterConfig() {
       const Element = lazy(() => import("./component/pages/".concat(pathArr.slice(2, pathArr.length - 4))))
       router.push({
         element: <Element/>,
-        path: `pages/${pathArr.slice(2, pathArr.length - 4)}`
+        path: `${pathArr.slice(2, pathArr.length - 4)}`
       })
     })
 

@@ -10,29 +10,75 @@
 
 .base {
   box-sizing: border-box;
+  background: @heading-color !important;
+
+}
+
+// 大于 1100px
+@media screen and (min-width: 1100px) {
+  .topMode {
+    width: 100vw;
+    gap: 0.5rem;
+    height: 5.25rem;
+    padding: 1rem;
+    background: white;
+    position: relative;
+  }
+
+  .toolBar {
+    position: absolute;
+    right: 5vw;
+    transform: translateX(-50%);
+  }
+
+  .avatar {
+    cursor: pointer;
+
+  }
+
+  .topList {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    height: 100%;
+    padding-left: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+  }
+
+  .logo {
+    position: absolute;
+    left: 5%;
+    transform: translateX(-50%);
+  }
+
+  .search {
+    position: absolute;
+    width: 3vw;
+    left: 10%;
+  }
+
 }
 
 .topMode {
-  display: grid;
+  display: flex;
   width: 100vw;
   gap: 0.5rem;
   height: 5.25rem;
   padding: 1rem;
-  grid-template-columns: minmax(10rem, 1fr) minmax(20rem, 1fr) minmax(10em, 4fr) minmax(15rem, 3fr);
   background: white;
-  //position: absolute;
-  top: 0;
-  left: 0;
   align-items: center;
 }
 
 .toolBar {
-  justify-self: flex-end;
-  align-items: center;
+
 }
 
 .avatar {
   cursor: pointer;
+
 }
 
 .topList {
@@ -41,10 +87,11 @@
   margin-bottom: 0;
   height: 100%;
   padding-left: 0;
+  left: 50%;
 
   .topBar {
-    font-weight: bold;
-    color: @heading-color;
+    transition: all ease 0.3s;
+    color: white;
     cursor: pointer;
     display: flex;
     list-style: none;
@@ -53,10 +100,12 @@
     justify-content: center;
     align-items: center;
     line-height: 100%;
+    margin: auto 1rem;
   }
 
   li:hover {
-    color: @text-color;
+    transition: all ease 0.3s;
+    color: lighten(@primary-color, 5%);
   }
 }
 
@@ -67,6 +116,17 @@
   float: left;
   background: white;
   margin-right: 1.5rem;
+}
+
+.logo {
+  //position: absolute;
+  left: 5%;
+  transform: translateX(-50%);
+}
+
+.search {
+  border: white 1.5px solid !important;
+  color: white;
 }
 
 // 侧边栏模式，紧跟其后的第一个DOM元素会出现在侧边栏的右边，其余元素恢复正常排列数序
@@ -197,7 +257,6 @@
     }
   }
 }
-
 
 
 @keyframes fadeEffect {
