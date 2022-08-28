@@ -13,6 +13,12 @@ import IconLike from "../../../icon/iconLike/iconLike";
 import IconHeart from "../../../icon/iconHeart/iconHeart";
 import IconAll from "../../../icon/iconAll/iconAll";
 
+function Index2(props) {
+  return (
+    <p style={{color:"red"}}>组件1</p>
+  )
+}
+
 function Index(props) {
   const topData = [
     {
@@ -39,8 +45,10 @@ function Index(props) {
     }
   ]
 
-  const component = ["组件1", "组件2", "组件3"]
+  const component = [<Index2/>, "组件2", "组件3"]
   const [target, setTarget] = useState(0)
+
+  // 切换按钮
   const switchComponents = (index) => {
     setTarget(index)
   }

@@ -1,0 +1,115 @@
+/**
+* @name: hnsLoading.module.less
+* @author: 米洛
+* @date: 2022-08-28 12:48
+* @description：样式
+*/
+
+.circle {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: @primary-color;
+  margin: 0 0.5rem;
+  animation: showEffect @animation-bezier-base 0.5s;
+}
+
+// 控制开启
+.show {
+  transition: ease 0.3s;
+  opacity: 1;
+}
+
+// 控制关闭
+.close {
+  transition: ease 0.3s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+}
+
+// 对元素分别延迟执行动画
+#circle_one {
+  animation-name: showTransform;
+  animation-iteration-count: infinite;
+  animation-timing-function: @animation-bezier-base;
+}
+
+
+#circle_two {
+  animation-delay: 0.1s;
+  animation-name: showTransform;
+  animation-iteration-count: infinite;
+  animation-timing-function: @animation-bezier-base;
+}
+
+#circle_three {
+  animation-delay: 0.15s;
+  animation-name: showTransform;
+  animation-iteration-count: infinite;
+  animation-timing-function: @animation-bezier-base;
+}
+
+// 全屏模式下的白色背景
+.whiteBlank {
+  background: white;
+}
+
+// 出现动画
+@keyframes showEffect {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(0.95);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// 无限位移
+@keyframes showTransform {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(1rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes showOpen {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes showClose {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
