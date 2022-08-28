@@ -19,7 +19,7 @@ function HNSBackToTop(props) {
   }
   // 滚动设置隐藏
   window.onscroll = () => {
-    // 防抖 2s 执行一次
+    // 防抖 0.2s 执行一次
     debounce(() => {
       if (window.scrollY > window.innerHeight / 3)
         setShow(true)

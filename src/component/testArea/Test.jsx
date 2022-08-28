@@ -9,14 +9,15 @@
 import React, {useState} from 'react';
 import style from './test.module.less'
 import HNSButton from "../baseUI/hnsButton/HNSButton";
+import HNSNavigate from "../baseUI/hnsNavigate/HNSNavigate";
+import HNSLoading from "../baseUI/hnsLoading/HNSLoading";
 
 
 function Test(props) {
-  const handleClick = () => {
-    console.log(1)
-  }
+  const [loading,setLoading]=useState(false)
   return (
     <div className={style.container}>
+      <HNSLoading fullScreen={false} isLoading={loading}/>
     </div>
   );
 }
