@@ -7,57 +7,28 @@
 
 import React, {useRef, useState} from 'react';
 import style from './miLuoExample.module.less'
-import IconArrowTop from "../../../icon/iconArrowTop/iconArrowTop";
-import {debounce} from "../../../utils/hnsDebounce";
+import {nanoid} from "nanoid";
+
 
 function MiLuoExample(props) {
-  const handleClick = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    })
+  const tag = ["热门", "番剧", "游戏"]
+  // 点击元素的索引
+  const [target, setTarget] = useState(0)
+  const handleClick = (index) => {
+    setTarget(index)
   }
-  const [show, setShow] = useState(false)
-  window.onscroll = () => {
-    debounce(() => {
-      if (window.scrollY > window.innerHeight / 3)
-        setShow(true)
-      else
-        setShow(false)
-    }, 200)
-  }
-
 
   return (
-    <div>
-      <p>我是顶部</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <div className={`${style.main} ${show ? style.show : ""}`} onClick={handleClick}>
-        <IconArrowTop/>
-      </div>
+    <div className={style.container}>
+      {
+        tag.map((item, index) => {
+          return (
+            <button className={`${style.button} ${target === index ? style.isActive : ""}`}
+                    onClick={event => handleClick(index)}
+                    key={nanoid()}>{tag[index]}</button>
+          )
+        })
+      }
     </div>
   );
 }

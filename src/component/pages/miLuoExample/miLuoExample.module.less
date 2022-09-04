@@ -5,29 +5,33 @@
 * @description：该文件的描述
 */
 
-
-.main {
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-  background: @primary-color;
-  position: fixed;
-  right: 3vw;
-  bottom: 10vh;
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+}
+
+.button {
+  border: none;
   cursor: pointer;
-  box-shadow: 0 0.1rem 0.5rem 0 lighten(@primary-color, 15%);
-  opacity: 0;
-  transition: all ease 0.3s;
-  visibility: hidden;
+  background: @disabled-color;
+  border-radius: 2rem;
+  padding: 0.5rem 2rem;
+  margin: auto 0.5rem;
+  color: white;
 }
 
-.show {
-  transition: all ease 0.3s;
-  opacity: 1;
-  visibility: visible;
+.isActive {
+  background: lighten(@primary-color, 10%);
+  animation: showFade ease 0.3s;
 }
 
-
+@keyframes showFade {
+  0% {
+    background: @disabled-color;
+  }
+  100% {
+    background: lighten(@primary-color, 10%);
+  }
+}
