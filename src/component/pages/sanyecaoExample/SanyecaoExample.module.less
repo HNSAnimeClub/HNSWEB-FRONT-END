@@ -1,7 +1,30 @@
 .container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1em;
-        padding: 2em;
-        align-items: center;
-      }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.button {
+  border: none;
+  cursor: pointer;
+  background:@disabled-color;
+  border-radius: 2rem;
+  padding: 0.5rem 2rem;
+  margin: auto 0.5rem;
+  color: white;
+}
+
+.isActive {
+  background: lighten(rgb(7, 160, 255), 10%);
+  animation: showFade ease 0.3s;
+}
+
+@keyframes showFade {
+  0% {
+    background: @disabled-color;
+  }
+  100% {
+    background: lighten(@primary-color, 10%);
+  }
+}
