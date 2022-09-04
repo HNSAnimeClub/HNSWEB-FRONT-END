@@ -6,7 +6,7 @@
  */
 import YiTongExample from "./YiTongExample";
 
-function YiTongExzample2（props){
+function YiTongExzample2(props){
 
     return (
         <>

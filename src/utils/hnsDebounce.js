@@ -15,14 +15,13 @@ export const debounce = (callBack, delay) => {
 }
 
 // 一段时间内多次执行只取第一次的结果
-export const debounceReverse = (callBack, delay) => {
-  return function () {
-    let context = this, args = arguments, allowCall = !time
-    if (time) clearTimeout(time)
-    time = setTimeout(() => {
-      time = null
-    }, delay)
-    if (allowCall) callBack.apply(context, args)
-  }
+export const debounceReverse = function (callBack, delay) {
+  let context = this, args = arguments, allowCall = !time
+  if (time) clearTimeout(time)
+  time = setTimeout(() => {
+    time = null
+  }, delay)
+  if (allowCall) callBack.apply(context, args)
 }
+
 
