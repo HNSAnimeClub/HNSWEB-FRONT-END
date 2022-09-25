@@ -9,29 +9,20 @@ import React, {useRef, useState} from 'react';
 import style from './miLuoExample.module.less'
 import {nanoid} from "nanoid";
 
+//
+// function MiLuoExample(props) {
+//   let a = false
+//   const returnA = () => {
+//     return a
+//   }
+//
+//   return (
+//     <div>a的值是 {a ? "真的" : "假的"} </div>
+//   )
+//
+// }
+//
+// export default MiLuoExample;
 
-function MiLuoExample(props) {
-  const tag = ["热门", "番剧", "游戏"]
-  // 点击元素的索引
-  const [target, setTarget] = useState(0)
-  const handleClick = (index) => {
-    setTarget(index)
-  }
 
-  return (
-    <div className={style.container}>
-      {
-        tag.map((item, index) => {
-          return (
-            <button className={`${style.button} ${target === index ? style.isActive : ""}`}
-                    onClick={event => handleClick(index)}
-                    key={nanoid()}>{tag[index]}</button>
-          )
-        })
-      }
-    </div>
-  );
-}
-
-export default MiLuoExample;
 

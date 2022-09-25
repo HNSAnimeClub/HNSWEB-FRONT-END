@@ -1,7 +1,6 @@
 import React, {lazy, Suspense} from 'react'
 import {Routes, Route, BrowserRouter} from 'react-router-dom'
 import {nanoid} from "nanoid";
-import App from "./App";
 import Test from "./component/testArea/Test";
 import Index from "./component/pages/main";
 import HNSLoading from "./component/baseUI/hnsLoading/HNSLoading";
@@ -43,9 +42,7 @@ export default function RouterConfig() {
       <Suspense fallback={<HNSLoading fullScreen={true}/>}>
         <Routes>
           <Route path={"/"} element={<Index/>} key={nanoid()}/>
-          <Route path={"/test"} element={<Test/>} key={nanoid()}>
-          </Route>
-
+          <Route path={"/test"} element={<Test/>} key={nanoid()}/>
           {
             router.map(item => {
               return (
