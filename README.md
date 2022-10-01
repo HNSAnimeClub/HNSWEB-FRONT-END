@@ -1,9 +1,12 @@
-<div align="center">
+<div style="text-align: center;margin-bottom: 2rem">
 <img src="./public/绯空娘avatar.png" style="width:300px"/>
 </div>
 
-# <center> HNS-WEB 绯色之空动漫社
-<div align="center">
+
+
+<h1 style="text-align:center">HNS-WEB 绯色之空动漫社</h1>
+
+<div style="text-align: center">
 <img src="https://img.shields.io/badge/HNS--WEB--FE-v1.0-%23ff6987" alt="HNS-WEB-FE"/>
 <img src="https://img.shields.io/badge/React-v17.02-%231890ff"/> 
 <img src="https://img.shields.io/badge/React--router-v6.3.2-1890ff"/>
