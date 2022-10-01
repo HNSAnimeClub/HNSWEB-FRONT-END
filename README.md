@@ -1,13 +1,21 @@
-# 基于 React JS 的绯色之空动漫社社区类应用，前端部分
+<div align="center">
+<img src="./public/绯空娘avatar.png" style="width:300px"/>
+</div>
 
+# <center> HNS-WEB 绯色之空动漫社
+<div align="center">
 <img src="https://img.shields.io/badge/HNS--WEB--FE-v1.0-%23ff6987" alt="HNS-WEB-FE"/>
-<img src="https://img.shields.io/badge/React-v17.02-%231890ff"/> <img src="https://img.shields.io/badge/React--router-v6.3.2-1890ff"/>
+<img src="https://img.shields.io/badge/React-v17.02-%231890ff"/> 
+<img src="https://img.shields.io/badge/React--router-v6.3.2-1890ff"/>
+</div>
 
 
 **克隆到本地仓库后安装依赖:**
+
 ### `npm install`
 
 **启动项目:**
+
 ### `npm start`
 
 #### 提交代码至git
@@ -27,7 +35,7 @@ git remote add origin https://你的token@github.com/HNSAnimeClub/HNSWEB-FRONT-E
 
 **英文状态下按q退出git**
 
-1.  查看状态
+1. 查看状态
 
 ```bash
 git status
@@ -39,7 +47,7 @@ git status
 git add .
 ```
 
-3.  提交到本地仓库
+3. 提交到本地仓库
 
 ```bash
 git commit -m "类型：描述"

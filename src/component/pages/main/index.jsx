@@ -45,6 +45,7 @@ function Index(props) {
     }
   ]
 
+  // eslint-disable-next-line
   const component = [<Index2/>, "组件2", "组件3"]
   const [target, setTarget] = useState(0)
 

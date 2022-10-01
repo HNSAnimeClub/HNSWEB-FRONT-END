@@ -5,14 +5,15 @@
  * @description：该文件的描述
  */
 import YiTongExample from "./YiTongExample";
+import React from 'react'
 
-function YiTongExzample2(props){
+function YiTongExzample2(props) {
 
-    return (
-        <>
-            <YiTongExample></YiTongExample>
-        </>
-    )
+  return (
+    <>
+      <YiTongExample></YiTongExample>
+    </>
+  )
 }
 
 export default YiTongExzample2;

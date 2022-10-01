@@ -53,7 +53,6 @@ return(
         <p>Test</p>
         <p>Test</p>
         <div className={`${style.main} ${show?style.show:""}`}OnClick={handleClick}> 
-        onClick={handleClick}>
             <IconArrowTop/>
         </div>
     </div>
