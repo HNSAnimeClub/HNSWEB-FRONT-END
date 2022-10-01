@@ -1,8 +1,6 @@
 <div style="text-align: center;margin-bottom: 2rem">
-<img src="./public/绯空娘avatar.png" style="width:300px"/>
+<img src="./public/绯空娘avatar-s.png" style="width:300px"/>
 </div>
-
-
 
 <h1 style="text-align:center">HNS-WEB 绯色之空动漫社</h1>
 
@@ -21,7 +19,7 @@
 
 ### `npm start`
 
-#### 提交代码至git
+**提交代码至git**
 
 修改自己的用户名，邮箱
 
