@@ -9,6 +9,7 @@ import React, {useState} from 'react';
 import style from './hnsButton.module.less'
 
 function HNSButton(props) {
+
   let {changeStyle, className} = props
   className = className ? className : ""
   const [state, setState] = useState(0)
@@ -32,6 +33,7 @@ function HNSButton(props) {
       onClick={handleClick}
       onAnimationEnd={handleAnime}
       disabled={props.disabled}
+      {...props}
     >
       {props.children}
     </button>

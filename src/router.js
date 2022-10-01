@@ -39,7 +39,7 @@ export default function RouterConfig() {
 
   return (
     <BrowserRouter>
-      <Suspense fallback={<HNSLoading fullScreen={true}/>}>
+      <Suspense fallback={<HNSLoading fullScreen/>}>
         <Routes>
           <Route path={"/"} element={<Index/>} key={nanoid()}/>
           <Route path={"/test"} element={<Test/>} key={nanoid()}/>
