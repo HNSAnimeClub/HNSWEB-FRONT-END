@@ -1,11 +1,8 @@
-
-<div align="center">
-  <img src="./public/绯空娘avatar.png" style="width:300px"/>
+<div style="text-align: center;margin-bottom: 2rem">
+  <img src="./public/绯空娘avatar-s.png" style="width:300px"/>
 </div>
 
-
-
-<h1 align="center">HNS-WEB 绯色之空动漫社</h1>
+<h1 style="text-align:center">HNS-WEB 绯色之空动漫社</h1>
 
 <div align="center">
   <img src="https://img.shields.io/badge/HNS--WEB--FE-v1.0-%23ff6987" alt="HNS-WEB-FE"/>
@@ -23,7 +20,7 @@
 
 ### `npm start`
 
-#### 提交代码至git
+**提交代码至git**
 
 修改自己的用户名，邮箱
 
