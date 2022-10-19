@@ -7,21 +7,48 @@
 
 
 import React, {useEffect, useRef, useState} from 'react';
-import style from './test.module.less'
 import {nanoid} from "nanoid";
-import HNSButton from "../baseUI/hnsButton/HNSButton";
-import {Button} from "antd";
-import Input from "antd/es/input/Input";
-import axios from "axios";
+
 
 function Test(props) {
-  useEffect(() => {
-    axios.get("/api/public/img/0ZUJjFY5OUcVvhUgG9p2J.jpg",{
-    }).then(res => res, err => err)
-  }, [])
-  return (
-    <div className={style.container}>
+  const data = [{label: "选项1"}, {label: "选项2"}, {label: "选项3"}]
 
+  const [state, setState] = useState(Array(data.length).fill(false))
+
+  const handleClick = (index) => {
+
+    state[index] = !state[index]
+    setState([...state])
+  }
+
+  const allSelect = () => {
+    if (state.every(item => item === true)) {
+      setState([...state.fill(false)])
+    } else {
+      setState([...state.fill(true)])
+    }
+  }
+
+  useEffect(() => {
+    console.log(state)
+  }, [state])
+
+
+  return (
+    <div>
+      <label key={nanoid()}>
+        全选
+        <input type={"checkbox"} onChange={allSelect} checked={state.every(item => item === true)}/>
+      </label>
+
+      {
+        data.map((item, index) => (
+          <label key={nanoid()}>
+            {item.label}
+            <input type={"checkbox"} checked={state[index]} onChange={() => handleClick(index)}/>
+          </label>
+        ))
+      }
     </div>
   )
 }
