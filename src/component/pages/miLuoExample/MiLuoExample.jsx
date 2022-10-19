@@ -5,24 +5,24 @@
  * @description：米洛组件
  */
 
-import React, {useRef, useState} from 'react';
-import style from './miLuoExample.module.less'
-import {nanoid} from "nanoid";
+import React, {useEffect, useRef, useState} from 'react';
+import {useRecoilValue} from "recoil";
+import {testModel} from "../../testArea/testModel";
 
 //
-// function MiLuoExample(props) {
-//   let a = false
-//   const returnA = () => {
-//     return a
-//   }
-//
-//   return (
-//     <div>a的值是 {a ? "真的" : "假的"} </div>
-//   )
-//
-// }
-//
-// export default MiLuoExample;
+function MiLuoExample(props) {
+
+  const state = useRecoilValue(testModel)
+  useEffect(() => {
+    console.log(state)
+  }, [state])
+  return (
+    <div>米洛</div>
+  )
+
+}
+
+export default MiLuoExample;
 
 
 
