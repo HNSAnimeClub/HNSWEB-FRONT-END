@@ -28,7 +28,10 @@ function HNSButton(props) {
   return (
     <button
       className={`${style.HNSButton} 
-      ${props.type ? style[props.type] : style["default"]} ${state ? style["clickActive"] : ""} ${className}`}
+      ${props.type ? style[props.type] : style["default"]} 
+      ${state ? style["clickActive"] : ""} 
+      ${className}`
+    }
       style={changeStyle}
       onClick={handleClick}
       onAnimationEnd={handleAnime}
