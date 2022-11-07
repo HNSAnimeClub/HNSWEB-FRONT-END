@@ -9,49 +9,41 @@
 import React, {useRef, useState} from "react";
 import style from './ozzyExample.module.less'
 import {filter} from "core-js/internals/array-iteration";
+import {nanoid} from "nanoid";
 
 function OzzyExample() {
 
-    const [data, setData] = useState([
-        {
-            name: "Ozzy"
-        }
-    ])
-
+    const [data, useData] = useState([1, 23])
     const input = useRef()
-
-    const handleClick = () => {
+    const submit = () => {
         let {value} = input.current
-        data.push(
-            {
-                name: value
-            }
-        )
-        setData([...data])
+        if (value) {
+            data.push(value)
+        }
+        useData([...data])
     }
 
     const deleteClick = (targetIndex) => {
         let temp = data.filter((item, index) => index !== targetIndex)
-        setData(temp)
+        useData(temp)
     }
 
     return (
         <div className={style.container}>
-            <ul>
+            <input ref={input}/>
+            <button onClick={submit}>提交</button>
+            <div>
                 {
-                    data.map((item,index) => {
+                    data.map((value, targetIndex) => {
                         return (
-                            <li key={item+index} onClick={event => deleteClick(index)}>{item.name}</li>
+                            <div key={nanoid()}>
+                                {value}
+                                <button onClick={event => deleteClick(targetIndex)}>删除</button>
+                            </div>
                         )
                     })
                 }
-
-            </ul>
-            <div>
-                <input ref={input}/>
-                <button onClick={handleClick}>提交</button>
             </div>
-
         </div>
     )
 }
