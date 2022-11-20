@@ -13,19 +13,19 @@ import {nanoid} from "nanoid";
 
 function OzzyExample() {
 
-    const [data, useData] = useState([1, 23])
+    const [data, setData] = useState([1, 23])
     const input = useRef()
     const submit = () => {
         let {value} = input.current
         if (value) {
             data.push(value)
         }
-        useData([...data])
+        setData([...data])
     }
 
     const deleteClick = (targetIndex) => {
         let temp = data.filter((item, index) => index !== targetIndex)
-        useData(temp)
+        setData(temp)
     }
 
     return (
