@@ -8,22 +8,35 @@
 
 import React, {useEffect, useRef, useState} from 'react';
 import {Todolist} from "../pages/miLuoExample/MiLuoExample";
+import axios from "axios";
 
 
 function Test(props) {
-  const obj = {
-    username: "米洛",
-    id: 114514
+
+  const [loading, setLoading] = useState(false)
+  const [tableModel, setTableModel] = useState([])
+
+  const getData = async () => {
+    setLoading(true)
+    const {data: {slideshow: {slides}}} = await axios.get(
+      `https://echo.apifox.com/json`)
+    slides.forEach((item) => item.task = item.title)
+    setTableModel(slides)
+    setLoading(false)
   }
-  //  localStorage
-  useEffect(()=>{
-    sessionStorage.setItem("userInfo",JSON.stringify(obj))
-    // const json="{\"url\": \"https://echo.apifox.com/stream/5\", \"args\": {}}"
-  },[])
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+  //
+  // 1. 发送请求
+  // 2. 处理响应数据
+  // 3. 刷新视图 setState()
 
   return (
     <div>
-      <Todolist dataSource={[]} isLoading={false}/>
+      <Todolist dataSource={tableModel} isLoading={loading}/>
     </div>
   )
 }
