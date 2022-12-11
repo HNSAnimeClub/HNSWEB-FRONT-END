@@ -7,13 +7,23 @@
 
 
 import React, {useEffect, useRef, useState} from 'react';
+import {Todolist} from "../pages/miLuoExample/MiLuoExample";
 
 
 function Test(props) {
-  const officeRef = useRef()
-  return (
-    <div ref={officeRef}>
+  const obj = {
+    username: "米洛",
+    id: 114514
+  }
+  //  localStorage
+  useEffect(()=>{
+    sessionStorage.setItem("userInfo",JSON.stringify(obj))
+    // const json="{\"url\": \"https://echo.apifox.com/stream/5\", \"args\": {}}"
+  },[])
 
+  return (
+    <div>
+      <Todolist dataSource={[]} isLoading={false}/>
     </div>
   )
 }

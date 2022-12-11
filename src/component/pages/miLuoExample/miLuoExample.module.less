@@ -51,6 +51,24 @@
     align-items: center;
     justify-content: space-between;
     padding-bottom: 1rem;
+
+    .add {
+      box-sizing: border-box;
+      border-radius: @border-radius-base;
+      background: @primary-color;
+      outline: none;
+      color: whitesmoke;
+      border: none;
+      padding: 0.3rem 0.5rem;
+      transition: all ease 0.3s;
+
+      &:hover {
+        cursor: pointer;
+        transition: all ease 0.3s;
+        background: fade(@primary-color, 80%);
+      }
+
+    }
   }
 
   input {
@@ -61,7 +79,7 @@
 
     &:focus {
       outline: @primary-color 1.5px solid;
-      border: transparent 1.5px solid;
+      border: transparent 1px solid;
     }
   }
 }
