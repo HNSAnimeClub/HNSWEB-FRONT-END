@@ -8,7 +8,6 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react';
 import style from './miLuoExample.module.less'
 import {Delete, Me} from '@icon-park/react'
-import {nanoid} from "nanoid";
 import {People} from "@icon-park/react"
 import {Button, Table} from "antd";
 import axios from "axios";
@@ -80,7 +79,6 @@ const GitListNew = () => {
     },
   ]
 
-
   const getData = async () => {
     setLoading(true)
     const {data} = await axios.get(`https://api.github.com/users?per_page=50`)
@@ -91,7 +89,7 @@ const GitListNew = () => {
   const pageChange = (pagination) => {
     setPagination({...pagination})
   }
-
+  
   useEffect(() => {
     getData()
   }, [])
