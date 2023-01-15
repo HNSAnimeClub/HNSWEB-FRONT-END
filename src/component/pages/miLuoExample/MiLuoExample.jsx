@@ -9,6 +9,7 @@ import React, {useEffect, useMemo, useRef, useState} from 'react';
 import style from './miLuoExample.module.less'
 import {Delete, Me} from '@icon-park/react'
 import {People} from "@icon-park/react"
+import {nanoid} from "nanoid";
 import {Button, Table} from "antd";
 import axios from "axios";
 import HNSLoading from "../../baseUI/hnsLoading/HNSLoading";
@@ -89,7 +90,7 @@ const GitListNew = () => {
   const pageChange = (pagination) => {
     setPagination({...pagination})
   }
-  
+
   useEffect(() => {
     getData()
   }, [])
