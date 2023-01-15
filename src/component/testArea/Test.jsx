@@ -7,48 +7,39 @@
 
 
 import React, {useEffect, useRef, useState} from 'react';
-import {nanoid} from "nanoid";
+import {Todolist} from "../pages/miLuoExample/MiLuoExample";
+import axios from "axios";
 
 
 function Test(props) {
-  const data = [{label: "选项1"}, {label: "选项2"}, {label: "选项3"}]
+  // 你要做的几件事
+  // 1. 发送请求
+  // 2. 处理响应数据
+  // 3. 刷新视图 setState()
 
-  const [state, setState] = useState(Array(data.length).fill(false))
-
-  const handleClick = (index) => {
-
-    state[index] = !state[index]
-    setState([...state])
-  }
-
-  const allSelect = () => {
-    if (state.every(item => item === true)) {
-      setState([...state.fill(false)])
-    } else {
-      setState([...state.fill(true)])
-    }
+  const [loading, setLoading] = useState(false)
+  const [tableModel, setTableModel] = useState([])
+  const getData = async () => {
+    // 加载
+    setLoading(true)
+    // 发请求
+    const {data: {slideshow: {slides}}} = await axios.get(
+      `https://echo.apifox.com/json`)
+    // 处理数据，给数据源一个不存在的task字段，以便于展示
+    slides.forEach((item) => item.task = item.title)
+    // 更新数据
+    setTableModel(slides)
+    // 把加载关了
+    setLoading(false)
   }
 
   useEffect(() => {
-    console.log(state)
-  }, [state])
-
+    getData()
+  }, [])
 
   return (
     <div>
-      <label key={nanoid()}>
-        全选
-        <input type={"checkbox"} onChange={allSelect} checked={state.every(item => item === true)}/>
-      </label>
-
-      {
-        data.map((item, index) => (
-          <label key={nanoid()}>
-            {item.label}
-            <input type={"checkbox"} checked={state[index]} onChange={() => handleClick(index)}/>
-          </label>
-        ))
-      }
+      <Todolist dataSource={tableModel} isLoading={loading}/>
     </div>
   )
 }

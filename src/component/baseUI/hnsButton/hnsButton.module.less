@@ -78,3 +78,14 @@
   cursor: not-allowed;
 }
 
+// 危险按钮
+.danger {
+  background: @error-color;
+  color: white;
+  border-radius: @border-radius-base;
+  border: none
+}
+
+.danger:hover {
+  background: fade(@error-color, 90%);
+}

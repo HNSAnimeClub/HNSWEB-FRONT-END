@@ -1,0 +1,47 @@
+/**
+* @name: baseUI.less
+* @author: 米洛
+* @date: 2022-06-14 00:03
+* @description：HNS UI 组件库通用样式
+*/
+body {
+  font-size: 16px;
+  min-width: 68.75rem !important;
+  background: rgba(203, 203, 203, 0.29);
+}
+@keyframes borderDiffuseAnime {
+  0% {
+    box-shadow: 0 0 0 0 #ffb1c6;
+  }
+  100% {
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0);
+  }
+}
+@keyframes flexible-Anime {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  75% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes transForm {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=baseUI.css.map */

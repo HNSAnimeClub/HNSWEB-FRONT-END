@@ -1,6 +1,5 @@
 <div style="text-align:center;margin-bottom: 2rem" align="center">
   <img src="./public/绯空娘avatar-s.png" style="width:300px"/>
-
 </div>
 
 <h1 style="text-align:center" align="center">HNS-WEB 绯色之空动漫社</h1>
@@ -66,7 +65,7 @@ git commit -m "类型：描述"
   docs    📝  添加/更新文档
   perf    👌  提高性能/优化
   test    ✅  增加/修改测试用例
-  refactor🎨  代码重构
+  refactor 🎨  代码重构
   chore   🎨  其他修改, 比如构建流程, 依赖管理
   publish 🚀  发布新版本
   tag     📌  发布新版本

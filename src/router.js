@@ -4,6 +4,8 @@ import {nanoid} from "nanoid";
 import Test from "./component/testArea/Test";
 import Index from "./component/pages/main";
 import HNSLoading from "./component/baseUI/hnsLoading/HNSLoading";
+import miLuoExample from "./component/pages/miLuoExample/MiLuoExample";
+import ozzyExample from "./component/pages/ozzyExample/OzzyExample";
 
 /**
  * @Author: 米洛
@@ -26,6 +28,7 @@ export default function RouterConfig() {
   const router = []
   const component = require.context('./component/pages', true, /\.(jsx)$/)
   const typeReg = /^(pages\/admin)/g
+
   component
     .keys()
     .forEach((key, index) => {
@@ -42,7 +45,9 @@ export default function RouterConfig() {
       <Suspense fallback={<HNSLoading fullScreen/>}>
         <Routes>
           <Route path={"/"} element={<Index/>} key={nanoid()}/>
-          <Route path={"/test"} element={<Test/>} key={nanoid()}/>
+          <Route path={"/test"} element={<Test/>} key={nanoid()}>
+          </Route>
+
           {
             router.map(item => {
               return (
@@ -51,6 +56,7 @@ export default function RouterConfig() {
             })
           }
         </Routes>
+        
       </Suspense>
     </BrowserRouter>
   )

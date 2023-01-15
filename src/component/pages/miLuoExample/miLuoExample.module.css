@@ -1,0 +1,31 @@
+/**
+* @name: miLuoExample.module.less
+* @author: 米洛
+* @date: 2022-07-10 17:05
+* @description：该文件的描述
+*/
+.container {
+  background: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.time {
+  margin-top: 1rem;
+}
+.table {
+  width: 70rem;
+}
+.table .avatar {
+  width: 3rem;
+  border-radius: 50%;
+}
+.table .spaceLink {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+/*# sourceMappingURL=miLuoExample.module.css.map */

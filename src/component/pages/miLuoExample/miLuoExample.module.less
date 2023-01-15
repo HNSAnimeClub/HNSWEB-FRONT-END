@@ -6,32 +6,108 @@
 */
 
 .container {
+  background: white;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
+  justify-content: center;
 }
-
-.button {
-  border: none;
-  cursor: pointer;
-  background: @disabled-color;
-  border-radius: 2rem;
-  padding: 0.5rem 2rem;
-  margin: auto 0.5rem;
-  color: white;
+.time{
+  margin-top: 1rem;
 }
-
-.isActive {
-  background: lighten(@primary-color, 10%);
-  animation: showFade ease 0.3s;
-}
-
-@keyframes showFade {
-  0% {
-    background: @disabled-color;
+.table {
+  width: 70rem;
+  // 头像
+  .avatar{
+    width: 3rem;
+    border-radius: 50%;
   }
-  100% {
-    background: lighten(@primary-color, 10%);
+  // 用户个人空间
+  .spaceLink {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
   }
+
 }
+
+//.container {
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//  height: 100vh;
+//
+//  ul {
+//    display: flex;
+//    flex-direction: column;
+//    width: 45rem;
+//    gap: 0.5rem;
+//    background: white;
+//    border-radius: @border-radius-base;
+//    padding: 3rem;
+//  }
+//
+//  li {
+//    box-sizing: border-box;
+//    list-style: none;
+//    cursor: pointer;
+//    display: flex;
+//    padding: 1rem;
+//    justify-content: space-between;
+//    align-items: center;
+//    border: fade(@text-color, 5%) 1px solid;
+//    border-radius: @border-radius-base;
+//  }
+//
+//  .delete {
+//    background: @error-color;
+//    border: none;
+//    border-radius: @border-radius-base;
+//    transition: all ease 0.3s;
+//
+//    &:hover {
+//      cursor: pointer;
+//      background: fade(@error-color, 80%);
+//      transition: all ease 0.3s;
+//    }
+//  }
+//
+//  .toolBar {
+//    display: flex;
+//    align-items: center;
+//    justify-content: space-between;
+//    padding-bottom: 1rem;
+//
+//    .add {
+//      box-sizing: border-box;
+//      border-radius: @border-radius-base;
+//      background: @primary-color;
+//      outline: none;
+//      color: whitesmoke;
+//      border: none;
+//      padding: 0.3rem 0.5rem;
+//      transition: all ease 0.3s;
+//
+//      &:hover {
+//        cursor: pointer;
+//        transition: all ease 0.3s;
+//        background: fade(@primary-color, 80%);
+//      }
+//
+//    }
+//  }
+//
+//  input {
+//    box-sizing: border-box;
+//    padding: 0.5rem;
+//    border-radius: @border-radius-base;
+//    border: fade(@text-color, 50%) 1px solid;
+//
+//    &:focus {
+//      outline: @primary-color 1.5px solid;
+//      border: transparent 1px solid;
+//    }
+//  }
+//}
