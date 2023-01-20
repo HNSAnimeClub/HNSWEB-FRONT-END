@@ -2,7 +2,9 @@
   <img src="./public/绯空娘avatar-s.png" style="width:300px"/>
 </div>
 
-<h1 style="text-align:center" align="center">HNS-WEB 绯色之空动漫社</h1>
+<div align="center">
+<h1>HNS-WEB 绯色之空动漫社</h1>
+</div>
 
 <div align="center">
   <img src="https://img.shields.io/badge/HNS--WEB--FE-v1.0-%23ff6987" alt="HNS-WEB-FE"/>
