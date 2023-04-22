@@ -1,0 +1,94 @@
+/*列表*/
+.list {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 1rem;
+
+  @media screen and (max-width: 1440px) {
+    grid-template-columns: repeat(4, auto);
+  }
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(3, auto);
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  @media screen and (max-width: 425px) {
+    grid-template-columns: auto;
+  }
+}
+/* 模块 */
+.item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  height: 10rem;
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 6rem;
+      border-radius: 1rem;
+    }
+  }
+
+  .right {
+    flex: 1;
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+
+    .title {
+      font-weight: 700;
+    }
+
+    .hot {
+      font-size: 1.2rem;
+      color: #ff8c21;
+      path {
+        fill: #ffc14f;
+      }
+    }
+  }
+
+  .en {
+    margin-top: @padding-xs;
+    font-size: 12px;
+    font-weight: 400;
+    color: @text-color-secondary;
+  }
+
+  .desc {
+    font-size: 12px;
+    color: @text-color-secondary;
+    line-height: 22px;
+    margin: 1rem 0;
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    .bItem {
+      font-size: 12px;
+      display: flex;
+      gap: @padding-xs;
+    }
+  }
+}
