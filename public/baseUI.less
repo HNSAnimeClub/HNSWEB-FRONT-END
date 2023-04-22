@@ -5,7 +5,11 @@
 * @description：HNS UI 组件库通用样式
 */
 
-@primary-color: #ff1856; // 全局主色
+@primary-color: #1f1f1f; // 全局主色
+@secondary-color: #ededed; 
+@third-color: #7ED312;
+@fourth-color: #2b4ae4;
+@fifth-color: #f5274d;
 @link-color: #1890ff; // 链接色
 @success-color: #52c41a; // 成功色
 @warning-color: #faad14; // 警告色
@@ -15,11 +19,12 @@
 @heading-color: rgba(0, 0, 0, 0.85); // 标题色
 @text-color: #213547; // 主文本色
 @text-color-secondary: rgba(0, 0, 0, 0.45); // 次文本色
-@disabled-color: rgba(0, 0, 0, 0.25); // 失效色
+@disabled-color: #d8d8d8; // 失效色
 @border-radius-base: 0.4rem; // 组件/浮层圆角
 @border-color-base: rgba(75, 75, 75, 0.29); // 边框色
-@box-shadow-base: 0 0.3rem 0.6rem -0.4rem rgba(0, 0, 0, 0.12), 0 0.6rem 1.6rem 0 rgba(0, 0, 0, 0.08),
-0 0.9rem 2.8rem 0.8rem rgba(0, 0, 0, 0.05); // 浮层阴影
+@box-shadow-base: 0 0.3rem 0.6rem -0.4rem rgba(0, 0, 0, 0.12),
+  0 0.6rem 1.6rem 0 rgba(0, 0, 0, 0.08),
+  0 0.9rem 2.8rem 0.8rem rgba(0, 0, 0, 0.05); // 浮层阴影
 @padding-xs: 8px;
 @text-padding: 0.5rem; //边框内部文字间距
 @label-margin: 0.4rem; // 输入框标签外边距
@@ -32,9 +37,15 @@
 @border-diffuse-Anime: borderDiffuseAnime;
 @flexible-Anime: flexible-Anime;
 @transform-Anime: transForm;
+@font-text: "noto Sans SC", sans-serif;
+
 body {
+  margin: 0;
   font-size: 16px;
   min-width: 68.75rem !important;
+  font-family: @font-text;
+  font-style: normal;
+  font-weight: 400;
   background: lighten(@border-color-base, 50%);
 }
 
@@ -45,7 +56,6 @@ body {
   }
   100% {
     box-shadow: 0 0 0 6px fade(lighten(@primary-color, 100%), 0);
-
   }
 }
 
@@ -66,7 +76,6 @@ body {
   100% {
     transform: scale(1);
   }
-
 }
 
 // 位移动画

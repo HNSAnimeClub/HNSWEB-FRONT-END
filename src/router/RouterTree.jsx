@@ -5,17 +5,36 @@
  * @description：路由树
  */
 
+import React, { lazy } from "react";
 
-import React, {lazy} from 'react';
+const lazyLoad = (path) => lazy(() => import(`../component/pages/${path}`));
 
+const loginJudge = () => {
+  // return false;
+};
 
-const lazyLoad = (path) =>lazy(()=>import())
-
-export const RouterTree = [
+export const routerTree = [
   {
     path: "/",
-    element
-  }
-]
+    component: lazy(() => import("../component/module/basePage/BasePage")),
+    redirect: "home",
+    children: [
+      {
+        path: "home",
+        component: lazyLoad("homePage/HomePage"),
+      },
+    ],
+  },
 
+  {
+    path: "/topic/:id",
+    component:  lazyLoad("topic/Topic"),
+    redirect: "home",
+  },
 
+  //未匹配到页面时返回主页
+  {
+    path: "*",
+    component: lazyLoad("homePage/HomePage"),
+  },
+];

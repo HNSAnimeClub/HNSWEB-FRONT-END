@@ -1,0 +1,84 @@
+.box {
+  color: whitesmoke;
+
+  .top {
+    display: flex;
+    gap: @padding-xs;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 5rem;
+    background: @primary-color;
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .avatar {
+        height: 2rem;
+        width: 2rem;
+        margin-left: 2rem;
+      }
+
+      .toolbar {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+  }
+
+  .bottom {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 12px 5rem;
+    backdrop-filter: saturate(180%) blur(5px);
+    background: hsla(0, 0%, 100%, 0.8);
+    color: white;
+    font-size: 14px;
+
+    .item {
+      display: flex;
+      background: darken(@disabled-color, 10%);
+      border-radius: 2rem;
+      padding: @padding-xs 1rem;
+      gap: @padding-xs;
+      box-shadow: inset 0 4px 10px fade(black, 15%);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .active {
+      background: linear-gradient(to right, #be4ff9, fade(@fourth-color, 90%));
+      animation: scale ease 0.4s;
+    }
+  }
+
+  @keyframes scale {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.85);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .divider {
+    width: 1px;
+    height: @padding-xs;
+    background: whitesmoke;
+  }
+
+  .icon {
+    transition: all ease 0.2s;
+    &:hover {
+      transition: all ease 0.2s;
+      color: fade(whitesmoke, 80%);
+      cursor: pointer;
+    }
+  }
+}
