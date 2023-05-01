@@ -6,8 +6,8 @@
 */
 
 @primary-color: #1f1f1f; // 全局主色
-@secondary-color: #ededed; 
-@third-color: #7ED312;
+@secondary-color: #ededed;
+@third-color: #7ed312;
 @fourth-color: #2b4ae4;
 @fifth-color: #f5274d;
 @link-color: #1890ff; // 链接色
@@ -41,12 +41,26 @@
 
 body {
   margin: 0;
+  color: #1c1e21;
   font-size: 16px;
-  min-width: 68.75rem !important;
+  // min-width: 68.75rem !important;
   font-family: @font-text;
   font-style: normal;
   font-weight: 400;
   background: lighten(@border-color-base, 50%);
+}
+// 顶部进度条
+#nprogress {
+  .bar {
+    background: @third-color !important; //自定义颜色
+  }
+  .peg {
+    box-shadow: 0 0 10px @third-color, 0 0 5px @third-color !important;
+  }
+  .spinner-icon {
+    border-top-color: @third-color !important;
+    border-left-color: @third-color !important;
+  }
 }
 
 // 点击后阴影扩散的动画
