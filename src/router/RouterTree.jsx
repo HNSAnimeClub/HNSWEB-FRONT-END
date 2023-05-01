@@ -20,7 +20,7 @@ export const routerTree = [
     redirect: "home",
     children: [
       {
-        path: "home",
+        path: "/home",
         component: lazyLoad("homePage/HomePage"),
       },
     ],
@@ -29,12 +29,12 @@ export const routerTree = [
   {
     path: "/topic/:id",
     component:  lazyLoad("topic/Topic"),
-    redirect: "home",
   },
 
   //未匹配到页面时返回主页
   {
     path: "*",
+    redirect: "/home",
     component: lazyLoad("homePage/HomePage"),
   },
 ];

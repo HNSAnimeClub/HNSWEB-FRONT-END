@@ -5,6 +5,7 @@ import {
   CosmeticBrush,
   Fire,
   GameThree,
+  HamburgerButton,
   Headwear,
   Platte,
   Remind,
@@ -13,6 +14,7 @@ import {
 } from "@icon-park/react";
 import { useRecoilState } from "recoil";
 import { useAppBarStore } from "./store";
+import { userStore } from "../../store/userStore";
 
 export default function AppBar() {
   const items = [
@@ -26,13 +28,28 @@ export default function AppBar() {
   ];
 
   const [target, setTarget] = useRecoilState(useAppBarStore);
+  const { user_name, ...userInfo } = useRecoilState(userStore);
+  const [open, setOpen] = useState(false);
   const changeItem = (index) => setTarget(index);
+
+  // 移动端菜单展开收起
+  const toogle = () => {
+    setOpen(!open);
+  };
 
   return (
     <div className={style.box}>
       <div className={style.top}>
-        <div>
+        <div className={style.title}>
           <span>HNS-WEB</span>
+        </div>
+        {/* 移动端按钮与菜单*/}
+        <HamburgerButton className={style.menuButton} onClick={toogle} />
+
+        <div className={`${style.menu} ${open && style.menuActive}`}>
+          {!user_name && <span className={style.item}>登录</span>}
+          <span className={style.item}>关于我们</span>
+          {user_name && <span className={style.item}>退出登录</span>}
         </div>
 
         <div className={style.right}>

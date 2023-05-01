@@ -8,6 +8,7 @@
     justify-content: space-between;
     padding: 1rem 5rem;
     background: @primary-color;
+    position: relative;
 
     .right {
       display: flex;
@@ -20,12 +21,81 @@
         margin-left: 2rem;
       }
 
+      
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .menu {
+      display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 1rem 2rem;
+
+      .title {
+        display: none;
+      }
+
       .toolbar {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
+        display: none;
+      }
+
+      .menuButton {
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all ease 0.3s;
+
+        &:hover {
+          color: fade(white, 70%);
+          transition: all ease 0.3s;
+        }
+      }
+
+      .menu {
+        display: grid;
+        width: 100%;
+        gap: @padding-xs;
+        text-align: center;
+        transition: all ease 0.3s;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background-color: white;
+        z-index: 99;
+        visibility: hidden;
+        opacity: 0;
+        color: @text-color;
+        transform: translateY(20px);
+
+        .item {
+          display: block;
+          padding: 1rem;
+          transition: all ease 0.3s;
+          &:hover {
+            transition: all ease 0.3s;
+            cursor: pointer;
+            background-color: fade(@disabled-color, 50%);
+          }
+        }
+      }
+
+      .menuActive {
+        transition: all ease 0.3s;
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
       }
     }
+  }
+
+  .menuButton {
+    display: none;
   }
 
   .bottom {
@@ -51,7 +121,15 @@
     }
     .active {
       background: linear-gradient(to right, #be4ff9, fade(@fourth-color, 90%));
-      animation: scale ease 0.4s;
+      animation: scale ease 0.3s;
+    }
+
+    @media screen and (max-width: 1024px) {
+      overflow: scroll;
+      .item {
+        min-width: 6rem;
+        justify-content: center;
+      }
     }
   }
 
