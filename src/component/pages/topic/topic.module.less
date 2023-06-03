@@ -1,0 +1,303 @@
+.box {
+  display: flex;
+  margin: 0 8rem 0 8rem;
+  padding-top: 1rem;
+  gap: @padding-xs;
+
+  .content {
+    flex: 4;
+    .banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: @padding-xs;
+      background-color: white;
+      padding: 1rem;
+      border-radius: 1rem;
+      background-repeat: no-repeat;
+      background-size: cover;
+      box-shadow: @box-shadow-base;
+
+      .left {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+
+        img {
+          border-radius: 1rem;
+          height: 4.5rem;
+        }
+
+        h3 {
+          margin-bottom: 0;
+        }
+
+        .content {
+          display: grid;
+          font-size: 14px;
+          align-items: center;
+          gap: @padding-xs;
+
+          .foot {
+            color: @text-color-secondary;
+          }
+        }
+      }
+    }
+
+    // 帖子列表
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: @padding-xs;
+      margin: 1rem 0;
+
+      .pagination {
+        margin-top: 1rem;
+      }
+
+      .item {
+        cursor: pointer;
+        display: grid;
+        gap: @padding-xs;
+        background-color: white;
+        padding: 1rem;
+        border-radius: @padding-xs;
+        box-shadow: @box-shadow-base;
+
+        .top {
+          display: flex;
+          align-items: center;
+          gap: @padding-xs;
+
+          img {
+            height: 1.8rem;
+          }
+
+          .user {
+            display: grid;
+            gap: 0.2rem;
+
+            :first-child {
+              font-size: 14px;
+            }
+
+            :nth-child(2) {
+              font-size: 12px;
+              color: @text-color-secondary;
+            }
+          }
+        }
+
+        .buttom {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          padding-left: calc(1.8rem + @padding-xs);
+
+          .words {
+            display: flex;
+            flex-direction: column;
+
+            .desc {
+              flex-wrap: wrap;
+              font-size: 13px;
+              max-width: 50vw;
+              color: @text-color-secondary;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+              margin-bottom: 0;
+            }
+          }
+
+          .gallery {
+            div[remark="gallery"] {
+              margin-right: 1rem;
+            }
+          }
+
+          .tagAndOperate {
+            display: flex;
+            justify-content: space-between;
+
+            .tag {
+              display: flex;
+              gap: 1rem;
+
+              .item {
+                display: flex;
+                padding: @padding-xs 12px;
+                justify-content: center;
+                font-size: 13px;
+                box-shadow: none;
+                border-radius: 100px;
+                color: fade(@text-color, 75%);
+                background-color: #f1f2f3;
+              }
+            }
+
+            .operateGroup {
+              display: flex;
+              gap: 1rem;
+
+              .operate {
+                display: flex;
+                align-items: center;
+                gap: @padding-xs;
+                font-size: 14px;
+                transition: all ease 0.3s;
+                color: @text-color-secondary;
+
+                &:hover {
+                  transition: all ease 0.3s;
+                  cursor: pointer;
+                }
+
+                &:nth-child(3) {
+                  &:hover {
+                    color: @fifth-color;
+                  }
+                }
+
+                &:nth-child(4) {
+                  &:hover {
+                    color: darken(@third-color, 10%);
+                  }
+                }
+              }
+
+              .activeLike {
+                color: @fifth-color;
+                .icon {
+                  path {
+                    fill: @fifth-color;
+                  }
+                }
+              }
+
+              .activeDislike {
+                color: darken(@third-color, 10%);
+                .icon {
+                  path {
+                    fill: darken(@third-color, 10%);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 侧边操作
+  .popover {
+    flex: 1;
+    position: sticky;
+    top: 5rem;
+    height: fit-content;
+
+    display: grid;
+    grid-template-rows: auto;
+    gap: @padding-xs;
+
+    .item {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: @box-shadow-base;
+
+      .title {
+        display: flex;
+        font-size: 13px;
+        color: @text-color-secondary;
+        margin-bottom: 1rem;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .tool {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-around;
+
+        .button {
+          display: flex;
+          flex-direction: column;
+          gap: @padding-xs;
+          align-items: center;
+          cursor: pointer;
+          transition: all ease 0.4s;
+
+          .content {
+            font-size: 12px;
+          }
+        }
+
+        .comment {
+          &:hover {
+            color: fade(@fifth-color, 80%);
+          }
+        }
+
+        .article {
+          &:hover {
+            color: fade(@fifth-color, 80%);
+          }
+        }
+      }
+
+      // 相关圈子
+      .itemTwoTitle {
+        display: block;
+        font-size: 13px;
+        margin-bottom: 1rem;
+      }
+
+      .empty{
+        display: flex;
+        gap: @padding-xs;
+        font-size: 12px;
+        color: @text-color-secondary;
+      }
+
+      .list {
+        display: grid;
+        gap: 1rem;
+
+        .listItem {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          color: @text-color-secondary;
+
+          &:hover {
+            cursor: pointer;
+          }
+
+          img {
+            height: 4rem;
+            border-radius: @padding-xs;
+          }
+
+          .right {
+            display: grid;
+            gap: 1rem;
+            justify-content: space-between;
+            font-size: 12px;
+
+            .title {
+              font-size: 13px;
+              color: @primary-color;
+              margin: 0;
+              margin-bottom: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

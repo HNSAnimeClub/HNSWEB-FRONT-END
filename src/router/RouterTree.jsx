@@ -14,6 +14,7 @@ const loginJudge = () => {
 };
 
 export const routerTree = [
+  // 首页
   {
     path: "/",
     component: lazy(() => import("../component/module/basePage/BasePage")),
@@ -25,10 +26,25 @@ export const routerTree = [
       },
     ],
   },
-
+  // 话题
   {
-    path: "/topic/:id",
-    component:  lazyLoad("topic/Topic"),
+    component: lazy(() => import("../component/module/basePage/BasePage")),
+    children: [
+      {
+        path: "/topic/:id",
+        component: lazyLoad("topic/Topic"),
+      },
+    ],
+  },
+  // 写文章
+  {
+    component: lazy(() => import("../component/module/basePage/BasePage")),
+    children: [
+      {
+        path: "/artical",
+        component: lazyLoad("artical/Artical"),
+      },
+    ],
   },
 
   //未匹配到页面时返回主页

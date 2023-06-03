@@ -2,5 +2,8 @@ import { atom } from "recoil";
 
 export const useAppBarStore = atom({
   key: "useAppBarStore",
-  default: 0,
+  default: {
+    target: 0,
+    backgroundSrc: "",
+  },
 });

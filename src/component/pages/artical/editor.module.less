@@ -1,0 +1,201 @@
+div[class="ProseMirror"] {
+  min-height: 50vh;
+  padding: 4px;
+
+  > * + * {
+    margin-top: 0.75em;
+  }
+
+  ul,
+  ol {
+    padding: 0 1rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.1;
+  }
+
+  code {
+    background-color: rgba(#616161, 0.1);
+    color: #616161;
+  }
+
+  pre {
+    background: #0d0d0d;
+    color: #fff;
+    font-family: "JetBrainsMono", monospace;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+
+    code {
+      color: inherit;
+      padding: 0;
+      background: none;
+      font-size: 0.8rem;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(#0d0d0d, 0.1);
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid rgba(#0d0d0d, 0.1);
+    margin: 2rem 0;
+  }
+}
+
+div[class*="ProseMirror-focused"] {
+  min-height: 50vh;
+  padding: 4px;
+
+  &:focus-visible {
+    outline: none !important;
+  }
+}
+
+// 提示信息 placeholder
+p[class="is-empty is-editor-empty"] {
+  &:first-child {
+    &::before {
+      color: @text-color-secondary;
+      content: attr(data-placeholder);
+      float: left;
+      height: 0;
+      pointer-events: none;
+    }
+  }
+}
+
+// 顶部按钮激活和普通状态
+.normal {
+  padding: 4px;
+  border-radius: 4px;
+  &:hover {
+    background-color: fade(@disabled-color, 70%);
+    cursor: pointer;
+
+    &::after {
+      display: none;
+      content: attr(title);
+      z-index: 99;
+    }
+  }
+}
+
+.is-active {
+  padding: 4px;
+  border-radius: 4px;
+  color: white;
+  background-color: @primary-color;
+  cursor: pointer;
+}
+
+// 工具栏
+.tool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 2rem;
+  position: sticky;
+  top: 63px;
+  background-color: white;
+  z-index: 1;
+  padding: 1rem 0;
+}
+
+.colorWraper {
+  display: flex;
+  align-items: center;
+}
+
+.box {
+  padding: 1rem 0 1rem 0;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: @padding-xs;
+  padding: 2rem;
+  width: 60%;
+}
+
+// 标题
+.textareaBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: @padding-xs;
+  height: fit-content;
+
+  .textarea {
+    padding: 4px;
+    width: 100%;
+    resize: none;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    background-color: transparent;
+  }
+
+  .count {
+    padding-right: 1rem;
+    color: @text-color-secondary;
+    font-size: 12px;
+  }
+
+  .forbid {
+    color: @error-color;
+  }
+}
+
+// 用于上传
+.uploadBox {
+  h3 {
+    margin-bottom: 2rem;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .category {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .tips {
+      font-size: 14px;
+      color: @text-color-secondary;
+    }
+
+    // 上传封面
+    .gallery {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .uploadTool {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

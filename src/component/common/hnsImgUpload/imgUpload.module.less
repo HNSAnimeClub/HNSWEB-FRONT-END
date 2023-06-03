@@ -1,0 +1,39 @@
+.imgUpload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: @padding-xs;
+  border: 2px dashed @text-color-secondary;
+  height: 6rem;
+  width: 7rem;
+  transition: all ease 0.5s;
+
+  .icon {
+    transition: all ease 0.5s;
+    font-size: 1.5rem;
+    color: @primary-color;
+  }
+
+  &:hover {
+    transition: all ease 0.5s;
+    cursor: pointer;
+    border: 2px dashed darken(@third-color, 5%);
+
+    .icon {
+      color: darken(@third-color, 5%);
+    }
+  }
+}
+
+.img {
+  border-radius: @padding-xs;
+  height: 6rem;
+  width: 7rem;
+}
+
+.desc {
+  margin-top: @padding-xs;
+  color: @text-color-secondary;
+  font-size: 12px;
+}
