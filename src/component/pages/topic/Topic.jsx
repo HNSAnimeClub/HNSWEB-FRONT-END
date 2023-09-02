@@ -5,7 +5,7 @@
 import React, { useEffect, useState } from "react";
 import style from "./topic.module.less";
 import * as API from "../../../utils/request/interface/topic";
-import { Button, Tag, Image, Pagination } from "antd";
+import { Button, Image, Pagination } from "antd";
 import { useNavigate, useParams } from "react-router";
 import HNSAvatar from "../../common/hnsAvatar/HNSAvatar";
 import {
@@ -89,7 +89,8 @@ const HoverBanner = ({ topic_id }) => {
 
   // 写文章
   const transArtical = () => {
-    navigate("/artical");
+    // window(`/artical/${topic_id}`);
+    window.open(`/artical/${topic_id}`);
   };
 
   // 相关圈子
@@ -108,9 +109,7 @@ const HoverBanner = ({ topic_id }) => {
           <span>讲讲你的想法~</span>
         </div>
         <div className={style.tool}>
-          <div
-            className={`${style.button} ${style.comment}`}
-          >
+          <div className={`${style.button} ${style.comment}`}>
             <Comment fill={"#f5274d"} />
             <span className={style.content}>发帖子</span>
           </div>
@@ -157,25 +156,7 @@ const HoverBanner = ({ topic_id }) => {
 
 // 帖子列表
 const PostList = ({ topic_id }) => {
-  const [model, setModel] = useState([
-    {
-      post_id: 155783,
-      post_author_id: 151231,
-      post_author_name: "奥兹",
-      create_time: "2023-05-07T12:41:48+08:00",
-      theme: "萌新求带飞，官服",
-      desc: "一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区一区",
-      tag: ["新人", "官服"],
-      visits: 1032,
-      comment: 25,
-      like: 27,
-      dislike: 5,
-      img_list: [
-        "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
-        "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
-      ],
-    },
-  ]);
+  const [model, setModel] = useState([]);
 
   const [pagination, setPagination] = useState({
     current: 1,
@@ -184,7 +165,7 @@ const PostList = ({ topic_id }) => {
   });
 
   const [opList, setOpList] = useState({
-    like: [155783],
+    like: [],
     dislike: [],
   });
 

@@ -122,7 +122,6 @@ instance.interceptors.response.use(
         message.error(`${res.data.msg}`);
         sessionStorage.clear();
         window.location.replace("/");
-        controller.abort();
         break;
       default:
         break;

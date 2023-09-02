@@ -1,5 +1,5 @@
 div[class="ProseMirror"] {
-  min-height: 50vh;
+  min-height: 30vh;
   padding: 4px;
 
   > * + * {
@@ -58,7 +58,7 @@ div[class="ProseMirror"] {
 }
 
 div[class*="ProseMirror-focused"] {
-  min-height: 50vh;
+  min-height: 30vh;
   padding: 4px;
 
   &:focus-visible {
@@ -165,6 +165,11 @@ p[class="is-empty is-editor-empty"] {
   }
 }
 
+// 插入的图片
+.insertImg {
+  max-width: 100%;
+}
+
 // 用于上传
 .uploadBox {
   h3 {
@@ -179,7 +184,7 @@ p[class="is-empty is-editor-empty"] {
     .category {
       display: flex;
       gap: 1rem;
-      align-items: center;
+      flex-wrap: wrap;
     }
 
     .tips {
@@ -191,11 +196,22 @@ p[class="is-empty is-editor-empty"] {
     .gallery {
       display: flex;
       gap: 2rem;
+      flex-wrap: wrap;
     }
 
     .uploadTool {
       display: flex;
       justify-content: flex-end;
+      align-items: center;
+      gap: 1rem;
+
+
+      .button {
+        display: flex;
+        gap: @padding-xs;
+        align-items: center;
+       
+      }
     }
   }
 }

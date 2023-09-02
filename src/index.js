@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { ConfigProvider } from "antd";
+import { ConfigProvider, App } from "antd";
 import zhCN from "antd/locale/zh_CN";
 import "antd/dist/reset.css";
 import "nprogress/nprogress.css";
@@ -17,10 +17,13 @@ ReactDOM.render(
         theme={{
           token: {
             colorPrimary: "#1f1f1f",
+            fontFamily:"noto Sans SC, Roboto, sans-serif"
           },
         }}
       >
+        <App>
         <RouterConfig />
+        </App>
       </ConfigProvider>
     </RecoilRoot>
   </React.StrictMode>,

@@ -16,12 +16,10 @@
       gap: 1rem;
 
       .avatar {
-        height: 2rem;
-        width: 2rem;
+        height: 2.2rem;
+        width: 2.2rem;
         margin-left: 2rem;
       }
-
-      
     }
 
     .toolbar {
@@ -32,65 +30,6 @@
 
     .menu {
       display: none;
-    }
-
-    @media screen and (max-width: 768px) {
-      padding: 1rem 2rem;
-
-      .title {
-        display: none;
-      }
-
-      .toolbar {
-        display: none;
-      }
-
-      .menuButton {
-        display: block;
-        font-size: 1.5rem;
-        cursor: pointer;
-        transition: all ease 0.3s;
-
-        &:hover {
-          color: fade(white, 70%);
-          transition: all ease 0.3s;
-        }
-      }
-
-      .menu {
-        display: grid;
-        width: 100%;
-        gap: @padding-xs;
-        text-align: center;
-        transition: all ease 0.3s;
-        position: absolute;
-        left: 0;
-        top: 100%;
-        background-color: white;
-        z-index: 99;
-        visibility: hidden;
-        opacity: 0;
-        color: @text-color;
-        transform: translateY(20px);
-
-        .item {
-          display: block;
-          padding: 1rem;
-          transition: all ease 0.3s;
-          &:hover {
-            transition: all ease 0.3s;
-            cursor: pointer;
-            background-color: fade(@disabled-color, 50%);
-          }
-        }
-      }
-
-      .menuActive {
-        transition: all ease 0.3s;
-        visibility: visible;
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
   }
 
@@ -158,5 +97,268 @@
       color: fade(whitesmoke, 80%);
       cursor: pointer;
     }
+  }
+}
+
+// 头像菜单
+.avatartMenu {
+  display: flex;
+  gap: @padding-xs;
+  flex-direction: column;
+  position: absolute;
+  z-index: 999;
+  background-color: white;
+  box-shadow: @box-shadow-base;
+  padding: 1rem;
+  color: @text-color;
+  border-radius: @padding-xs;
+  top: 3.5rem;
+
+  .item {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    min-width: 4rem;
+  }
+}
+
+.loginCon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: darken(@third-color, 5%);
+  height: 2.2rem;
+  width: 2.2rem;
+  font-size: 12px;
+  border-radius: 50%;
+  font-weight: 400;
+
+  caret-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.mask {
+  overflow: hidden;
+  caret-color: transparent;
+  color: @text-color;
+  transition: all cubic-bezier(0, 1.13, 0.36, 0.99) 0.3s;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+
+  background-size: 90%;
+  background-image: url("/public/img/bg.jpg");
+  animation: bgScroll 60s linear infinite;
+}
+
+.content {
+  transition: all cubic-bezier(0, 1.13, 0.36, 0.99) 0.3s;
+  transform: translate(1000px) scale(0);
+
+  background-color: white;
+  border-radius: 1rem;
+  width: 20rem;
+  padding: 1rem 2rem 4rem 2rem;
+  opacity: 0;
+  visibility: hidden;
+
+  @media screen and (max-width: @tab-let) {
+    transform: scale(0.7) !important;
+  }
+
+  @media screen and (max-width: @mob-l) {
+    transform: scale(0.5) !important;
+  }
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    font-weight: bold;
+    align-items: center;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+
+    .icon {
+      color: @fifth-color;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .button {
+    margin: 3rem auto 0 auto;
+    transform: scale(1.3);
+
+    svg {
+      transform: translateY(15%) !important;
+    }
+  }
+
+  .regist {
+    margin-top: 1rem;
+    transition: all ease 0.3s;
+    width: fit-content;
+    font-weight: bold;
+
+    &:hover {
+      transition: all ease 0.3s;
+      color: @fifth-color;
+      cursor: pointer;
+    }
+  }
+}
+
+.open {
+  transition: all ease 0.3s;
+  visibility: visible;
+  opacity: 1;
+}
+
+.close {
+  transition: all ease 0.3s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.normalContent {
+  min-width: 100%;
+}
+
+.contentMove {
+  transition: all ease 0.3s;
+  transform: translate(0, -2rem) scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.contentOut {
+  transition: all ease 0.3s;
+  transform: translate(0, 1000px) scale(0);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.registContent {
+  transition: all cubic-bezier(0, 1.13, 0.36, 0.99) 0.3s;
+}
+
+.registOpen {
+  transition: all cubic-bezier(0, 1.13, 0.36, 0.99) 0.3s;
+  transform: translateX(0);
+}
+
+.slideTitle {
+  height: 2rem;
+  overflow: hidden;
+  p {
+    transition: all cubic-bezier(0, 1.13, 0.36, 0.99) 0.3s;
+    margin: 0;
+    transform: translateY(2px);
+  }
+}
+
+.slideStart {
+  p {
+    transition: all cubic-bezier(0, 1.13, 0.36, 0.99) 0.3s;
+    transform: translateY(-29px);
+  }
+}
+
+.slideEnd {
+  p {
+    transition: all cubic-bezier(0, 1.13, 0.36, 0.99) 0.3s;
+    transform: translateY(2px);
+  }
+}
+
+.login {
+  display: flex;
+  overflow: hidden;
+  transform: translateY(0);
+  transition: all cub ic-bezier(0, 1.13, 0.36, 0.99) 0.3s;
+  width: 16rem;
+}
+
+.slideForm {
+  transition: all cubic-bezier(0, 1.13, 0.36, 0.99) 0.3s;
+  transform: translateY(-10rem);
+}
+
+.slideFormStart {
+  .slideLeft {
+    transform: translateX(0);
+    transition: all cubic-bezier(0, 1.13, 0.36, 0.99) 0.3s;
+  }
+  .slideRight {
+    transform: translateX(0);
+    transition: all cubic-bezier(0, 1.13, 0.36, 0.99) 0.3s;
+  }
+}
+.slideFormEnd {
+  .slideLeft {
+    transform: translateX(-16rem);
+    transition: all cubic-bezier(0, 1.13, 0.36, 0.99) 0.3s;
+  }
+  .slideRight {
+    transform: translateX(-16rem);
+    transition: all cubic-bezier(0, 1.13, 0.36, 0.99) 0.3s;
+  }
+}
+
+.regFormCon {
+  margin-top: 5rem;
+}
+
+.slideLeft {
+  min-width: 16rem;
+  padding: 6px;
+  input {
+    caret-color: auto;
+  }
+}
+
+.slideRight {
+  min-width: 16rem;
+  padding: 6px;
+  input {
+    caret-color: auto;
+  }
+}
+
+.regInput {
+  display: flex;
+  gap: @padding-xs;
+  align-items: center;
+
+  div[class="ant-form-item css-dev-only-do-not-override-1ykcyly"] {
+    margin-bottom: 0;
+  }
+}
+
+@keyframes bgScroll {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 0px calc(-768px / 0.1);
   }
 }

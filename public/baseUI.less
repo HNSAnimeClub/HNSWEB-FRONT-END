@@ -37,14 +37,23 @@
 @border-diffuse-Anime: borderDiffuseAnime;
 @flexible-Anime: flexible-Anime;
 @transform-Anime: transForm;
-@font-text: "noto Sans SC", sans-serif;
+@font-text: noto Sans SC, Roboto;
+@tab-let: 48rem;
+@mob-l: 26.5625rem;
+@mob-m: 23.4375rem;
+@mob-s: 20rem;
+
+@font-face {
+  font-family: SourceHanSans-Regular;
+  src: url(/public/font/SourceHanSans-Regular.otf);
+}
 
 body {
   margin: 0;
   color: #1c1e21;
   font-size: 16px;
   // min-width: 68.75rem !important;
-  font-family: @font-text;
+  font-family: @font-text, SourceHanSans-Regular;
   font-style: normal;
   font-weight: 400;
   background: lighten(@border-color-base, 50%);

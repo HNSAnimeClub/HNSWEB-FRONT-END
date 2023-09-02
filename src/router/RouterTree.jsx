@@ -41,7 +41,7 @@ export const routerTree = [
     component: lazy(() => import("../component/module/basePage/BasePage")),
     children: [
       {
-        path: "/artical",
+        path: "/artical/:id",
         component: lazyLoad("artical/Artical"),
       },
     ],

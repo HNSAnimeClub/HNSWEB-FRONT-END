@@ -9,15 +9,21 @@ import { Color } from "@tiptap/extension-color";
 import ListItem from "@tiptap/extension-list-item";
 import TextStyle from "@tiptap/extension-text-style";
 import Placeholder from "@tiptap/extension-placeholder";
+import TextAlign from "@tiptap/extension-text-align";
 import style from "./editor.module.less";
 import { debounce } from "lodash";
-import { Button, ColorPicker, Divider, Select } from "antd";
+import { App, Button, ColorPicker, Divider, Select } from "antd";
 import {
   AddPicture,
+  AlignTextCenter,
+  AlignTextLeft,
+  AlignTextRight,
   Back,
+  Box,
   ClearFormat,
   Code,
   DividingLineOne,
+  Fireworks,
   H1,
   H2,
   H3,
@@ -42,6 +48,12 @@ import { useEditorStore } from "./editorStore";
 import Image from "@tiptap/extension-image";
 import HNSUpload from "../../common/hnsUpload/HNSUpload";
 import HNSImgUpload from "../../common/hnsImgUpload/HNSImgUpload";
+import { MIME_jpeg, MIME_png } from "../../../utils/tool/mimeType";
+import HNSTagGroup from "../../common/hnsTagGroup/HNSTagGroup";
+import {
+  getArticalDraft,
+  setArticalDraft,
+} from "../../../utils/hooks/useArtical";
 
 const MenuBar = ({ editor }) => {
   if (!editor) {
@@ -118,6 +130,37 @@ const MenuBar = ({ editor }) => {
         }
         title={"段落"}
       />
+
+      <AlignTextLeft
+        onClick={() => editor.chain().focus().setTextAlign("left").run()}
+        className={
+          editor.isActive({ textAlign: "left" })
+            ? style["is-active"]
+            : style.normal
+        }
+        title={"左对齐"}
+      />
+
+      <AlignTextCenter
+        onClick={() => editor.chain().focus().setTextAlign("center").run()}
+        className={
+          editor.isActive({ textAlign: "center" })
+            ? style["is-active"]
+            : style.normal
+        }
+        title={"居中对齐"}
+      />
+
+      <AlignTextRight
+        onClick={() => editor.chain().focus().setTextAlign("right").run()}
+        className={
+          editor.isActive({ textAlign: "right" })
+            ? style["is-active"]
+            : style.normal
+        }
+        title={"右对齐"}
+      />
+
       <H1
         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
         className={
@@ -241,7 +284,11 @@ const MenuBar = ({ editor }) => {
 
       <Pic onClick={imgClick} className={style.normal} title={"上传图片"} />
 
-      <HNSUpload ref={uploadRef} onChange={imgChange} />
+      <HNSUpload
+        ref={uploadRef}
+        onChange={imgChange}
+        accept={`${MIME_jpeg},${MIME_png}`}
+      />
     </div>
   );
 };
@@ -258,6 +305,7 @@ const Title = () => {
         placeholder={"请输入标题（建议30字以内）"}
         maxLength={maxLength}
         rows={1}
+        value={state.title}
         onChange={({ target: { value } }) =>
           setState({ ...state, title: value })
         }
@@ -273,24 +321,71 @@ const Title = () => {
 };
 
 // 用于上传，保存的组件
-const UploadTool = () => {
-  useEffect(() => {}, []);
+const UploadTool = ({ editor }) => {
+  const [state, setState] = useRecoilState(useEditorStore);
+  const { message } = App.useApp();
+
+  // 将图片上传至服务器
+  const getImg = async (file) => {
+    // const {url}=await
+    const url = "/public/images";
+    setState({ ...state, img: url });
+  };
+
+  const submit = async () => {
+    // {
+    //   ...state,
+    //   content:editor.getHTML()
+    // }
+    // 重置
+  };
+
+  // 存草稿
+  const saveDraft = () => {
+    const { title = "", img = "", tags = [] } = state;
+    const draftObj = {
+      title,
+      content: editor.getHTML(),
+      img,
+      tags,
+    };
+    setArticalDraft(draftObj);
+    message.success("保存成功");
+  };
+
   return (
     <div className={style.uploadBox}>
       <h3>发布设置</h3>
       <div className={style.main}>
         <div className={style.category}>
-          <span className={style.tips}>请选择文章分类</span>
-          <Select />
+          <span className={style.tips}>请添加标签 ( 可叠 10 个 BUFF)</span>
+          <HNSTagGroup
+            value={state.tags}
+            maxCount={10}
+            onChange={(tags) => {
+              setState({ ...state, tags });
+            }}
+          />
         </div>
 
         <div className={style.gallery}>
           <span className={style.tips}>添加封面</span>
-          <HNSImgUpload />
+          <HNSImgUpload onChange={getImg} />
         </div>
 
         <div className={style.uploadTool}>
-          <Button type={"primary"}>发布</Button>
+          <Button onClick={saveDraft}>
+            <div className={style.button}>
+              <Box />
+              存草稿
+            </div>
+          </Button>
+          <Button type={"primary"} onClick={submit}>
+            <div className={style.button}>
+              <Fireworks />
+              发布
+            </div>
+          </Button>
         </div>
       </div>
     </div>
@@ -298,7 +393,8 @@ const UploadTool = () => {
 };
 
 export default function Editor() {
-  const state = useRecoilValue(useEditorStore);
+  const [state, setState] = useRecoilState(useEditorStore);
+  const draft = getArticalDraft();
 
   const editor = useEditor({
     extensions: [
@@ -328,10 +424,29 @@ export default function Editor() {
       }),
       Image.configure({
         allowBase64: true,
+        HTMLAttributes: {
+          class: style.insertImg,
+        },
+      }),
+      TextAlign.configure({
+        types: ["heading", "paragraph", ""],
       }),
     ],
-    content: state.content,
   });
+
+  // 有草稿优先使用
+  const setDraftValue = () => {
+    setState({ ...state, ...draft });
+  };
+
+  useEffect(() => {
+    setDraftValue();
+  }, []);
+
+  useEffect(() => {
+    if (!editor) return;
+    editor.commands.setContent(draft.content);
+  }, [editor]);
 
   return (
     <div className={style.mainContainer}>
@@ -340,7 +455,7 @@ export default function Editor() {
       <MenuBar editor={editor} />
       <EditorContent editor={editor} />
       <Divider />
-      <UploadTool />
+      <UploadTool editor={editor} />
     </div>
   );
 }

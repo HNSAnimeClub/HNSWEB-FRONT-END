@@ -1,0 +1,56 @@
+.tagBox {
+  display: flex;
+  gap: @padding-xs;
+  flex-wrap: wrap;
+
+  .tag {
+    display: flex;
+    align-items: center;
+    gap: @padding-xs;
+    justify-content: center;
+    border-radius: @padding-xs;
+    padding: @padding-xs;
+    background-color: @primary-color;
+    color: white;
+    transition: all ease 0.3s;
+
+    &:hover {
+      transition: all ease 0.3s;
+      cursor: pointer;
+      background-color: fade(@primary-color, 80%);
+    }
+
+    .icon {
+      color: white;
+    }
+  }
+}
+
+.tagWrapper {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.bottom {
+  display: flex;
+  gap: @padding-xs;
+  align-items: center;
+  .input {
+    max-width: 8rem;
+  }
+  .count {
+    color: @text-color-secondary;
+    .main {
+      margin: 0 4px;
+    }
+
+    .highlight {
+      color: @error-color;
+    }
+  }
+}
+
+.switch {
+  flex-direction: column;
+}

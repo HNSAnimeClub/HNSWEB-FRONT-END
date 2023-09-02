@@ -28,7 +28,7 @@ export default function HNSImgUpload({ onChange, className }) {
         <HNSUpload
           ref={upload}
           onChange={handle}
-          accept={"image/png,image/JPEG,image/JPG"}
+          accept={"image/png,image/jpeg,image/jpg"}
         />
       </div>
       <p className={style.desc}>支持 JPEG、JPG、PNG</p>
