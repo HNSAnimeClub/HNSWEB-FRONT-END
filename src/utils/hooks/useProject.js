@@ -6,14 +6,14 @@
  * @Description: 基础Hooks
  */
 
-export const getSessionObj = target => JSON.parse(sessionStorage.getItem(target));
-export const setSessionObj = (name, target) => {
-  if (!(target instanceof String)) sessionStorage.setItem(name, JSON.stringify(target));
-  else sessionStorage.setItem(name, target);
+export const getlocalObj = target => JSON.parse(localStorage.getItem(target));
+export const setlocalObj = (name, target) => {
+  if (!(target instanceof String)) localStorage.setItem(name, JSON.stringify(target));
+  else localStorage.setItem(name, target);
 };
 
 // 用户信息
-export const useUser = () => getSessionObj("user_info") || {};
+export const useUser = () => getlocalObj("userStore") || {};
 
 
 

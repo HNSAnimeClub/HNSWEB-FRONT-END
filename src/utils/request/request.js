@@ -23,6 +23,7 @@ const instance = axios.create({
   timeout: 1000 * 3600,
 });
 
+
 /**
  *
  * @param {Object} config
@@ -39,17 +40,7 @@ const instance = axios.create({
  *
  * @returns {Promise} [Object | Array]
  */
-export const http = async ({
-  url,
-  type,
-  reqData,
-  config,
-  successInfo,
-  errorHandler,
-  fullData,
-  logger,
-  errorTips,
-}) => {
+export const http = async ({ url, type, reqData, config, successInfo, errorHandler, fullData, logger, errorTips }) => {
   try {
     const reqBodyJudge = () => {
       switch (true) {
@@ -75,8 +66,7 @@ export const http = async ({
         data.msg && errorTips && message.error(data.msg);
         break;
     }
-    logger &&
-      console.log({ code: data?.code, msg: data?.msg, data: data?.data });
+    logger && console.log({ code: data?.code, msg: data?.msg, data: data?.data });
     if (fullData) return data;
     return data?.data || null;
   } catch (error) {
@@ -100,7 +90,7 @@ instance.interceptors.request.use(
     if (req.url !== "/logout") NProgress.start();
 
     const { token = null } = useUser();
-    req.headers["Authorization"] = token ? `Bearer ${token}` : null;
+    req.headers["Authorization"] = token
 
     return req;
   },
