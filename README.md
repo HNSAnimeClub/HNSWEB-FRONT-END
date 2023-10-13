@@ -1,5 +1,5 @@
 <div style="text-align:center;margin-bottom: 2rem" align="center">
-  <img src="./public/绯空娘avatar-s.png" style="width:300px"/>
+  <img src="https://s1.imagehub.cc/images/2023/03/19/33ad3d405ec3b02d3c73ff29c3148e7b.th.png" style="width:300px"/>
 </div>
 
 <div align="center">
